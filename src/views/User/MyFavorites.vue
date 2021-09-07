@@ -1,8 +1,9 @@
 <template>
-  <router-view name="Header"></router-view>
-  <router-view />
+  <p class="display-6">My favorites</p>
 </template>
+
 <script>
 export default {};
 </script>
+
 <style></style>
