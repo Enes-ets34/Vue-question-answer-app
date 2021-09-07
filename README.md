@@ -1,4 +1,4 @@
-# 24-qa-app
+# Question-Answer App
 
 ## Project setup
 ```
