@@ -32,7 +32,8 @@ export default {
     appAxios
       .get("/questions?_expand=category")
       .then(res => {
-        console.log(res.data);
+        console.log(res.data);  
+        console.log("sa");  
 
         this.questionList = res?.data || [];
       })
