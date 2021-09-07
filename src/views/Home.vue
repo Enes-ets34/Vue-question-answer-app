@@ -6,7 +6,7 @@
           <categories></categories>
         </div>
         <div class="col-md-8">
-          <question v-for="i in 10" :key="i"></question>
+          <QuestionList :questionList="questionList" />
         </div>
       </div>
     </div>
@@ -15,11 +15,28 @@
 
 <script>
 import Categories from "../components/Home/Categories.vue";
-import Question from "../components/Question.vue";
+import QuestionList from "../components/Home/QuestionList.vue";
+import { appAxios } from "../utils/appAxios";
 // @ is an alias to /src
 
 export default {
   name: "Home",
-  components: { Categories, Question },
+  components: { Categories, QuestionList },
+
+  data() {
+    return {
+      questionList: []
+    };
+  },
+  created() {
+    appAxios
+      .get("/questions?_expand=category")
+      .then(res => {
+        console.log(res.data);
+
+        this.questionList = res?.data || [];
+      })
+      .catch(err => console.error(err));
+  }
 };
 </script>

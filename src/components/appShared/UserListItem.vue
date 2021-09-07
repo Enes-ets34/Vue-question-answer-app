@@ -2,7 +2,7 @@
   <div class="dropdown me-3">
     <div class="btn-group">
       <button type="button" class="btn btn-warning dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false"><i class="fas fa-user-alt"></i> Enes Taha Sarı</button>
-      <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start  pull-right" style="z-index:1 !important;">
+      <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start mt-2" style="z-index:1 !important;">
         <li class="align-items-center">
           <router-link to="/my-questions" class="dropdown-item" href="#"><i class="fas fa-question me-2"></i>Sorularım</router-link>
         </li>

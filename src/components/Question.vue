@@ -1,25 +1,16 @@
 <template>
   <div class="card mb-3">
     <div class="card-header">
-      <h4>Question Title</h4>
+      <h4>{{ question.title }}</h4>
     </div>
     <div class="card-body">
       <p class="card-text">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam voluptate
-        consequatur accusantium voluptatum saepe animi. Alias, consequuntur fuga
-        sit similique esse ducimus quasi iure perspiciatis non laudantium
-        tempore praesentium fugiat ab assumenda ad asperiores voluptates fugit!
-        Reiciendis mollitia natus libero animi modi. Laudantium voluptates
-        officia soluta, quia tempore deserunt dolores?
+        {{ question.content }}
       </p>
       <div class="d-flex justify-content-between align-items-center">
-        <small class="card-text text-muted">
-          <i class="fas fa-user"></i> Enes Taha Sarı 2 gün önce sordu.</small
-        >
+        <small class="card-text text-muted"> <i class="fas fa-user"></i> Enes Taha Sarı {{ timesAgo }} sordu. </small>
 
-        <small class="card-text w-50 text-end text-muted text-wrap "
-          ><i class="fas fa-list me-1"></i>Javascript , Dev0ps , Frontend , HTML , CSS
-        </small>
+        <small class="card-text w-50 text-end text-muted text-wrap "><i class="fas fa-list me-1"></i>{{  }} </small>
       </div>
     </div>
     <div class="card-footer align-items-center d-flex justify-content-between">
@@ -35,7 +26,40 @@
 </template>
 
 <script>
-export default {};
+import moment from "moment";
+moment.updateLocale("tr", {
+  relativeTime: {
+    past: "%s önce",
+    s: "birkaç saniye",
+    ss: "%d birkaç saniye",
+    m: "birkaç dakika",
+    mm: "%d dakika",
+    h: "bir saat",
+    hh: "%d saat",
+    d: "1 gün",
+    dd: "%d gün",
+    w: "bir hafta",
+    ww: "%d hafta",
+    M: "bir ay",
+    MM: "%d ay",
+    y: "bir yıl",
+    yy: "%d yıl"
+  }
+});
+export default {
+  props: {
+    question: {
+      type: Object,
+      required: true
+    }
+  },
+
+  computed: {
+    timesAgo() {
+      return moment(this.question.created_at).fromNow();
+    }
+  }
+};
 </script>
 
 <style></style>

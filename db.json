@@ -1,0 +1,60 @@
+{
+  "category": [
+    {
+      "title": "Vue.js",
+      "id": 1
+    },
+    {
+      "title": "React.js",
+      "id": 2
+    },
+    {
+      "title": "Angular.js",
+      "id": 3
+    },
+    {
+      "title": "Frontend Geliştirme",
+      "id": 4
+    },
+    {
+      "title": "Backend Geliştirme",
+      "id": 5
+    },
+    {
+      "title": "Dev0ps",
+      "id": 6
+    }
+  ],
+  "questions": [
+    {
+      "created_at": "2021-09-07T17:38:08.025Z",
+      "title": "Vue.js",
+      "content": "Vue js sorunum var gardaşŞşlar bana ulaşır mısınız ? \nig: enes.ets34",
+      "categoryId": 1,
+      "id": 2
+    },
+    {
+      "created_at": "2021-09-07T18:08:28.188Z",
+      "title": "React",
+      "content": "React iyi mi arkidişler ? ",
+      "categoryId": 2,
+      "id": 3
+    },
+    {
+      "created_at": "2021-09-07T18:09:08.256Z",
+      "title": "Dev0ps",
+      "content": "Dev0ps tanıdığınız var mı ? Gokhan kandemir haric...",
+      "categoryId": 6,
+      "id": 4
+    },
+    {
+      "created_at": "2021-09-07T18:15:15.055Z",
+      "title": "Abiler Merhaba",
+      "content": "Abiler merhaba ben boş yapmaya geldım",
+      "categoryId": 4,
+      "id": 5
+    }
+  ],
+  "answers": [],
+  "users": []
+}
