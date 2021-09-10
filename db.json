@@ -29,7 +29,7 @@
     {
       "created_at": "2021-09-07T17:38:08.025Z",
       "title": "Vue.js",
-      "content": "Vue js sorunum var gardaşŞşlar bana ulaşır mısınız ? \nig: enes.ets34",
+      "content": "Vue js sorunum var .",
       "categoryId": 1,
       "id": 2
     },
@@ -43,7 +43,7 @@
     {
       "created_at": "2021-09-07T18:09:08.256Z",
       "title": "Dev0ps",
-      "content": "Dev0ps tanıdığınız var mı ? Gokhan kandemir haric...",
+      "content": "Dev0ps tanıdığınız var mı ?",
       "categoryId": 6,
       "id": 4
     },
@@ -70,16 +70,16 @@
     },
     {
       "created_at": "2021-09-08T12:03:10.548Z",
-      "title": "alooooo",
-      "content": "aloo0o0o0o",
+      "title": "angular mı react mı?",
+      "content": "yoksa vue mu?",
       "categoryId": 3,
       "id": 8
     },
     {
       "created_at": "2021-09-08T12:03:48.405Z",
-      "title": "bababa",
-      "content": "baba mRb!",
-      "categoryId": 2,
+      "title": "En iyi backend teknolojisi hangisi?",
+      "content": "java diyorlar ama bilemiyorum.",
+      "categoryId": 5,
       "id": 9
     }
   ],
