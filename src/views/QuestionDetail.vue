@@ -1,20 +1,20 @@
 <template>
-  <div class="col-md-6 mx-auto mt-5">
+  <div v-if="question" class="col-md-6 mx-auto mt-5">
     <div class="card">
-      <div class="card-header"><h4>Question title</h4></div>
+      <div class="card-header">
+        <h4>{{ question.title }}</h4>
+      </div>
       <div class="card-body">
         <p class="card-text">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam aperiam
-          voluptate impedit repudiandae amet tenetur voluptates laborum itaque
-          perspiciatis corrupti, quaerat voluptatem maiores minima asperiores
-          commodi, et consectetur reiciendis quo omnis reprehenderit dicta. Fuga
-          ex amet maxime commodi dolor nihil.
+          {{ question.content }}
         </p>
         <div class="d-flex justify-content-between align-items-center">
           <small class="card-text text-muted">
             <i class="fas fa-user"></i> Enes Taha Sarı 2 gün önce sordu.</small
           >
-          <small class="card-text text-muted">Javascript , Dev0ps</small>
+          <small class="card-text text-muted"
+            ><i class="fas fa-list me-1"></i>{{ question?.category?.title }}</small
+          >
         </div>
       </div>
       <div class="card-footer">
@@ -33,7 +33,9 @@
               cevapladı.</small
             >
             <small class="card-text text-muted d-flex">
-              <span class=" d-flex justify-content-between align-items-center me-2">
+              <span
+                class=" d-flex justify-content-between align-items-center me-2"
+              >
                 <i class="far fa-thumbs-up"></i>
                 ( 3 )
               </span>
@@ -50,7 +52,28 @@
 </template>
 
 <script>
-export default {};
+import { appAxios } from "../utils/appAxios";
+export default {
+  data() {
+    return {
+      question: {
+        title: null,
+        content: null,
+        categoryId: null,
+        createdAt: null
+      }
+    };
+  },
+  created() {
+    appAxios
+      .get(`/questions/${this.$route.params.id}?_expand=category`)
+      .then(res => {
+        this.question = res.data;
+        console.log(res);
+      })
+      .catch(err => console.error(err));
+  }
+};
 </script>
 
 <style></style>

@@ -13,7 +13,7 @@ const routes = [
   },
 
   {
-    path: "/question-detail",
+    path: "/question-detail/:id",
     name: "QuestionDetail",
 
     components: { default: () => import("../views/QuestionDetail.vue"), Header }
@@ -34,7 +34,10 @@ const routes = [
     path: "/my-favorites",
     name: "MyFavorites",
 
-    components: { default: () => import("../views/User/MyFavorites.vue"), Header }
+    components: {
+      default: () => import("../views/User/MyFavorites.vue"),
+      Header
+    }
   },
   {
     path: "/profile",
@@ -46,7 +49,10 @@ const routes = [
     path: "/my-questions",
     name: "MyQuestions",
 
-    components: { default: () => import("../views/User/MyQuestions.vue"), Header }
+    components: {
+      default: () => import("../views/User/MyQuestions.vue"),
+      Header
+    }
   }
 ];
 

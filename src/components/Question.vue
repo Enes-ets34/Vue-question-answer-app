@@ -8,9 +8,13 @@
         {{ question.content }}
       </p>
       <div class="d-flex justify-content-between align-items-center">
-        <small class="card-text text-muted"> <i class="fas fa-user"></i> Enes Taha Sarı {{ timesAgo }} sordu. </small>
+        <small class="card-text text-muted">
+          <i class="fas fa-user"></i> Enes Taha Sarı {{ timesAgo }} sordu.
+        </small>
 
-        <small class="card-text w-50 text-end text-muted text-wrap "><i class="fas fa-list me-1"></i>{{ question?.category?.title }} </small>
+        <small class="card-text w-50 text-end text-muted text-wrap "
+          ><i class="fas fa-list me-1"></i>{{ question?.category?.title }}
+        </small>
       </div>
     </div>
     <div class="card-footer align-items-center d-flex justify-content-between">
@@ -20,7 +24,13 @@
         >
         <small class="text-muted ms-1">| 2 Gün önce</small>
       </div>
-      <button class="btn btn-outline-dark">Soruyu görüntüle</button>
+      <router-link
+        tag="button"
+        :to="showQuestion"
+        class="btn btn-outline-dark"
+      >
+        Soruyu görüntüle
+      </router-link>
     </div>
   </div>
 </template>
@@ -58,8 +68,12 @@ export default {
   computed: {
     timesAgo() {
       return moment(this.question.created_at).fromNow();
+    },
+    showQuestion() {
+       return `/question-detail/${this.question.id}`;
     }
-  }
+  },
+ 
 };
 </script>
 
