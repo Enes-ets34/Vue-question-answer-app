@@ -1,5 +1,5 @@
 {
-  "category": [
+  "categories": [
     {
       "title": "Vue.js",
       "id": 1
@@ -53,6 +53,34 @@
       "content": "Abiler merhaba ben boş yapmaya geldım",
       "categoryId": 4,
       "id": 5
+    },
+    {
+      "created_at": "2021-09-08T05:49:16.020Z",
+      "title": "hülooo",
+      "content": "hülooooooo örnek soru",
+      "categoryId": 5,
+      "id": 6
+    },
+    {
+      "created_at": "2021-09-08T06:23:58.877Z",
+      "title": "Node.js",
+      "content": "arkidişler node ile ilgili kimse niye soru sormamış yau ?",
+      "categoryId": 5,
+      "id": 7
+    },
+    {
+      "created_at": "2021-09-08T12:03:10.548Z",
+      "title": "alooooo",
+      "content": "aloo0o0o0o",
+      "categoryId": 3,
+      "id": 8
+    },
+    {
+      "created_at": "2021-09-08T12:03:48.405Z",
+      "title": "bababa",
+      "content": "baba mRb!",
+      "categoryId": 2,
+      "id": 9
     }
   ],
   "answers": [],

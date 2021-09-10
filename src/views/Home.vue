@@ -6,7 +6,7 @@
           <categories></categories>
         </div>
         <div class="col-md-8">
-          <QuestionList :questionList="questionList" />
+          <QuestionList />
         </div>
       </div>
     </div>
@@ -24,20 +24,13 @@ export default {
   components: { Categories, QuestionList },
 
   data() {
-    return {
-      questionList: []
-    };
+    return {};
   },
   created() {
-    appAxios
-      .get("/questions?_expand=category")
-      .then(res => {
-        console.log(res.data);  
-        console.log("sa");  
-
-        this.questionList = res?.data || [];
-      })
-      .catch(err => console.error(err));
+    this.$store.dispatch(
+      "questions/fetchQuestions",
+      this.$store.getters["categories/getSelectedCategories"]
+    );
   }
 };
 </script>

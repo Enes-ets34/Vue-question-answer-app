@@ -3,6 +3,10 @@
   <router-view />
 </template>
 <script>
-export default {};
+export default {
+  created() {
+    this.$store.dispatch("categories/fetchCategories");
+  }
+};
 </script>
 <style></style>

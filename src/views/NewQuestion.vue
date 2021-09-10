@@ -33,12 +33,9 @@
 </template>
 
 <script>
-import { appAxios } from "../utils/appAxios";
-
 export default {
   data() {
     return {
-      categories: [],
       userData: {
         title: null,
         content: null,
@@ -48,24 +45,17 @@ export default {
   },
   methods: {
     saveUserData() {
-      appAxios
-        .post("/questions", { created_at: new Date(), ...this.userData })
-        .then(res => {
-          console.log(res);
-          this.$router.push({ name: "Home" });
-        })
-        .catch(err => console.error(err));
+      this.$store.dispatch("questions/saveQuestion", { created_at: new Date(), ...this.userData });
+      this.$router.push({ name: "Home" });
     }
   },
-  created() {
-    appAxios
-      .get("/categories")
-      .then(res => (this.categories = res.data))
-      .catch(err => console.error(err));
-  },
+
   computed: {
     validate() {
       return !this.userData?.title?.length > 0 || !this.userData?.content?.length > 0;
+    },
+    categories() {
+      return this.$store.getters["categories/getCategories"];
     }
   }
 };

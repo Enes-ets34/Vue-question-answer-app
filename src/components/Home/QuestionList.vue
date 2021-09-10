@@ -8,10 +8,9 @@ export default {
   components: {
     Question
   },
-  props: {
-    questionList: {
-      type: Array,
-      required: false
+  computed: {
+    questionList() {
+      return this.$store.getters["questions/getQuestions"];
     }
   }
 };

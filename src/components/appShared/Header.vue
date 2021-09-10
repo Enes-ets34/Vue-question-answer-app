@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-warning">
+  <nav class="navbar navbar-expand-lg navbar-light bg-warning sticky-top">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Soru-Cevap</a>
       <button

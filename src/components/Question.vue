@@ -10,7 +10,7 @@
       <div class="d-flex justify-content-between align-items-center">
         <small class="card-text text-muted"> <i class="fas fa-user"></i> Enes Taha Sarı {{ timesAgo }} sordu. </small>
 
-        <small class="card-text w-50 text-end text-muted text-wrap "><i class="fas fa-list me-1"></i>{{  }} </small>
+        <small class="card-text w-50 text-end text-muted text-wrap "><i class="fas fa-list me-1"></i>{{ question?.category?.title }} </small>
       </div>
     </div>
     <div class="card-footer align-items-center d-flex justify-content-between">
@@ -53,6 +53,7 @@ export default {
       required: true
     }
   },
+  created() {},
 
   computed: {
     timesAgo() {
