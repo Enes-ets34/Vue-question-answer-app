@@ -23,6 +23,10 @@
     {
       "title": "Dev0ps",
       "id": 6
+    },
+    {
+      "title": "Java",
+      "id": 7
     }
   ],
   "questions": [
@@ -32,13 +36,6 @@
       "content": "Vue js sorunum var .",
       "categoryId": 1,
       "id": 2
-    },
-    {
-      "created_at": "2021-09-07T18:08:28.188Z",
-      "title": "React",
-      "content": "React iyi mi arkidişler ? ",
-      "categoryId": 2,
-      "id": 3
     },
     {
       "created_at": "2021-09-07T18:09:08.256Z",

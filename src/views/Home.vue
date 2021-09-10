@@ -7,6 +7,7 @@
         </div>
         <div class="col-md-8">
           <QuestionList />
+
         </div>
       </div>
     </div>
@@ -16,21 +17,21 @@
 <script>
 import Categories from "../components/Home/Categories.vue";
 import QuestionList from "../components/Home/QuestionList.vue";
-import { appAxios } from "../utils/appAxios";
+
+
 // @ is an alias to /src
 
 export default {
   name: "Home",
-  components: { Categories, QuestionList },
+  components: {
+    Categories,
+    QuestionList,
+
+  },
 
   data() {
     return {};
   },
-  created() {
-    this.$store.dispatch(
-      "questions/fetchQuestions",
-      this.$store.getters["categories/getSelectedCategories"]
-    );
-  }
+
 };
 </script>
