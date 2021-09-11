@@ -9,7 +9,8 @@
       </p>
       <div class="d-flex justify-content-between align-items-center">
         <small class="card-text text-muted">
-          <i class="fas fa-user"></i> Enes Taha Sarı {{ timesAgo }} sordu.
+          <i class="fas fa-user"></i> Enes Taha Sarı
+          {{ timesAgo(question.created_at) }} sordu.
         </small>
 
         <small class="card-text w-50 text-end text-muted text-wrap "
@@ -24,11 +25,7 @@
         >
         <small class="text-muted ms-1">| 2 Gün önce</small>
       </div>
-      <router-link
-        tag="button"
-        :to="showQuestion"
-        class="btn btn-outline-dark"
-      >
+      <router-link tag="button" :to="showQuestion" class="btn btn-outline-dark">
         Soruyu görüntüle
       </router-link>
     </div>
@@ -36,27 +33,9 @@
 </template>
 
 <script>
-import moment from "moment";
-moment.updateLocale("tr", {
-  relativeTime: {
-    past: "%s önce",
-    s: "birkaç saniye",
-    ss: "%d birkaç saniye",
-    m: "birkaç dakika",
-    mm: "%d dakika",
-    h: "bir saat",
-    hh: "%d saat",
-    d: "1 gün",
-    dd: "%d gün",
-    w: "bir hafta",
-    ww: "%d hafta",
-    M: "bir ay",
-    MM: "%d ay",
-    y: "bir yıl",
-    yy: "%d yıl"
-  }
-});
+import helperMixin from "../utils/helperMixin";
 export default {
+  mixins: [helperMixin],
   props: {
     question: {
       type: Object,
@@ -66,14 +45,10 @@ export default {
   created() {},
 
   computed: {
-    timesAgo() {
-      return moment(this.question.created_at).fromNow();
-    },
     showQuestion() {
-       return `/question-detail/${this.question.id}`;
+      return `/question-detail/${this.question.id}`;
     }
-  },
- 
+  }
 };
 </script>
 

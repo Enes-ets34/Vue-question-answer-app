@@ -1,5 +1,5 @@
 <template>
-  <div v-if="questionList.length == 0" class="alert alert-warning">
+  <div v-if="questionList.length === 0" class="alert alert-warning">
     <p class="display-6 text-center text-dark">
       Bu kategori(lere) ait soru bulunamadı :(. İlk soruyu sormak için
       <router-link :to="newQuestionUrl">buraya tıkla</router-link>
@@ -19,11 +19,15 @@ import { mapGetters } from "vuex";
 import Question from "../../components/Question.vue";
 
 export default {
+  data() {
+    return {
+      isLoaded: false
+    };
+  },
   components: {
     Question
   },
   created() {
-    // this.fetchQuestions();
     this.$store.dispatch("questions/fetchQuestions", this.selectedCategories);
   },
   computed: {

@@ -1,5 +1,5 @@
 <template>
-  <div v-if="question" class="col-md-6 mx-auto mt-5">
+  <div v-if="isLoaded" class="col-md-6 mx-auto mt-5">
     <div class="card">
       <div class="card-header">
         <h4>{{ question.title }}</h4>
@@ -10,10 +10,12 @@
         </p>
         <div class="d-flex justify-content-between align-items-center">
           <small class="card-text text-muted">
-            <i class="fas fa-user"></i> Enes Taha Sarı 2 gün önce sordu.</small
+            <i class="fas fa-user"></i> Enes Taha Sarı
+            {{ timesAgo(question.created_at) }} sordu.</small
           >
           <small class="card-text text-muted"
-            ><i class="fas fa-list me-1"></i>{{ question?.category?.title }}</small
+            ><i class="fas fa-list me-1"></i
+            >{{ question?.category?.title }}</small
           >
         </div>
       </div>
@@ -49,31 +51,31 @@
       </div>
     </div>
   </div>
+  <app-loading v-else></app-loading>
 </template>
 
 <script>
+import helperMixin from "../utils/helperMixin";
 import { appAxios } from "../utils/appAxios";
+
 export default {
+  mixins: [helperMixin],
   data() {
     return {
-      question: {
-        title: null,
-        content: null,
-        categoryId: null,
-        createdAt: null
-      }
+      question: null,
+      isLoaded: false
     };
   },
   created() {
     appAxios
       .get(`/questions/${this.$route.params.id}?_expand=category`)
       .then(res => {
-        this.question = res.data;
-        console.log(res);
+        setTimeout(() => {
+          this.question = { ...res.data };
+          this.isLoaded = true;
+        }, 1000);
       })
       .catch(err => console.error(err));
   }
 };
 </script>
-
-<style></style>
