@@ -21,7 +21,9 @@
     <div class="card-footer align-items-center d-flex justify-content-between">
       <div>
         <small>
-          <b><i class="fas fa-comment-dots"></i> 4 Cevap</b></small
+          <b
+            ><i class="fas fa-comment-dots"></i> {{ answerCount }}</b
+          ></small
         >
         <small class="text-muted ms-1">| 2 Gün önce</small>
       </div>
@@ -42,11 +44,20 @@ export default {
       required: true
     }
   },
-  created() {},
+  created() {
+    console.log("this.question :>> ", this.question);
+  },
 
   computed: {
     showQuestion() {
       return `/question-detail/${this.question.id}`;
+    },
+    answerCount() {
+      if (this.question.answers.length === 0) {
+        return "henüz cevap yok.";
+      } else {
+        return this.question.answers.length + " Cevap"
+      }
     }
   }
 };

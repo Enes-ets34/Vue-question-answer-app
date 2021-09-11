@@ -15,7 +15,7 @@ export default {
   },
   actions: {
     fetchQuestions({ commit }, selectedCategories) {
-      let url = "/questions?_expand=category&_sort=created_at&_order=desc";
+      let url = "/questions?_expand=category&_sort=created_at&_order=desc&_embed=answers";
       if (selectedCategories) {
         const IDs = selectedCategories
           .filter(c => c.selected)
