@@ -80,6 +80,21 @@
       "id": 9
     }
   ],
-  "answers": [],
+  "answers": [
+    {
+      "id": 1,
+      "content": "Aynen abicim ya",
+      "userId": 1,
+      "questionId": 2,
+      "created_at": "2021-09-08T17:38:08.025Z"
+    },
+    {
+      "id": 2,
+      "content": "Yok be olum ruby falan var ama javada kıyak yani.",
+      "userId": 1,
+      "questionId": 9,
+      "created_at": "2021-09-10T17:38:08.025Z"
+    }
+  ],
   "users": []
 }

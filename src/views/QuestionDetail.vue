@@ -20,19 +20,26 @@
         </div>
       </div>
       <div class="card-footer">
-        <div class="card ">
+        <div v-if="question.answers.length === 0">
+          <div class="alert alert-warning">
+            Bu soruya hiç bir yanıt verilmedi:(
+          </div>
+        </div>
+        <div
+          v-else
+          v-for="answer in question.answers"
+          :key="answer.id"
+          class="card "
+        >
           <div class="card-body">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur,
-            quisquam! Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Quos quasi hic ab ipsa sit. Dolorum excepturi eaque quo voluptas
-            perferendis.
+            {{ answer.content }}
           </div>
           <div
             class="card-footer d-flex justify-content-between align-items-center"
           >
             <small class="card-text text-muted">
-              <i class="fas fa-user"></i> Gokhan Kandemir 1 gün önce
-              cevapladı.</small
+              <i class="fas fa-user"></i> {{ answer.userId }}
+              {{ timesAgo(answer.created_at) }} cevapladı.</small
             >
             <small class="card-text text-muted d-flex">
               <span
@@ -68,10 +75,13 @@ export default {
   },
   created() {
     appAxios
-      .get(`/questions/${this.$route.params.id}?_expand=category`)
+      .get(
+        `/questions/${this.$route.params.id}?_expand=category&_embed=answers`
+      )
       .then(res => {
         setTimeout(() => {
           this.question = { ...res.data };
+          console.log(res.data);
           this.isLoaded = true;
         }, 1000);
       })
