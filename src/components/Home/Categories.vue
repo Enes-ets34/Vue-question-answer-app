@@ -1,5 +1,5 @@
 <template>
-  <div class="card sticky-top mb-2" style="z-index:0 !important;">
+  <div class="card sticky-top mb-2 shadow" style="z-index:0 !important;">
     <div class="list-group">
       <a
         href="#"

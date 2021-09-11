@@ -1,5 +1,5 @@
 <template>
-  <div class="col-sm-7 mx-auto mt-5">
+  <div class="col-sm-7 mx-auto mt-5 shadow">
     <div class="card">
       <div class="card-header"><h4>Soru Sor</h4></div>
       <div class="card-body">

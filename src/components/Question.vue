@@ -1,5 +1,5 @@
 <template>
-  <div class="card mb-3">
+  <div class="card mb-3 shadow">
     <div class="card-header">
       <h4>{{ question.title }}</h4>
     </div>
@@ -21,9 +21,7 @@
     <div class="card-footer align-items-center d-flex justify-content-between">
       <div>
         <small>
-          <b
-            ><i class="fas fa-comment-dots"></i> {{ answerCount }}</b
-          ></small
+          <b><i class="fas fa-comment-dots"></i> {{ answerCount }}</b></small
         >
         <small class="text-muted ms-1">| 2 Gün önce</small>
       </div>
@@ -44,9 +42,6 @@ export default {
       required: true
     }
   },
-  created() {
-    console.log("this.question :>> ", this.question);
-  },
 
   computed: {
     showQuestion() {
@@ -56,7 +51,7 @@ export default {
       if (this.question.answers.length === 0) {
         return "henüz cevap yok.";
       } else {
-        return this.question.answers.length + " Cevap"
+        return this.question.answers.length + " Cevap";
       }
     }
   }

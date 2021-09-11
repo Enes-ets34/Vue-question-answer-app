@@ -5,6 +5,7 @@
       <router-link :to="newQuestionUrl">buraya tıkla</router-link>
     </p>
   </div>
+
   <Question
     v-else
     v-for="question in questionList"
@@ -51,4 +52,6 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+
+</style>

@@ -6,7 +6,8 @@
           <categories></categories>
         </div>
         <div class="col-md-8">
-          <QuestionList />
+
+            <QuestionList  />
 
         </div>
       </div>
@@ -18,20 +19,20 @@
 import Categories from "../components/Home/Categories.vue";
 import QuestionList from "../components/Home/QuestionList.vue";
 
-
 // @ is an alias to /src
 
 export default {
   name: "Home",
   components: {
     Categories,
-    QuestionList,
-
+    QuestionList
   },
 
   data() {
     return {};
-  },
-
+  }
 };
 </script>
+<style>
+
+</style>
