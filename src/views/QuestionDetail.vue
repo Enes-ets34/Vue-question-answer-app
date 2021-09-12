@@ -21,43 +21,37 @@
           </div>
         </div>
         <div class="card-footer">
+          <div class="form-group mb-2  d-flex align-items-center">
+            <input
+              v-model="userData.content"
+              @keypress.enter="addAnswer()"
+              type="text"
+              placeholder="Bu soruya yanıt ekle..."
+              class="form-control rounded-pill"
+            />
+
+            <button class="btn btn-outline">
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </div>
+          <hr />
+          <!-- Alert -->
           <div v-if="question.answers.length === 0">
             <div class="alert alert-warning">
               Bu soruya hiç bir yanıt verilmedi:(
             </div>
           </div>
-          <div
+          <!-- /Alert -->
+
+          <!-- Answers -->
+          <Answer
             v-else
             v-for="answer in question.answers"
             :key="answer.id"
-            class="card my-2 "
-          >
-            <div class="card-body">
-              {{ answer.content }}
-            </div>
-            <div
-              class="card-footer d-flex justify-content-between align-items-center"
-            >
-              <small class="card-text text-muted">
-                <i class="fas fa-user"></i> {{ answer.userId }}
-                {{ timesAgo(answer.created_at) }} cevapladı.</small
-              >
-              <small class="card-text text-muted d-flex">
-                <span
-                  class=" d-flex justify-content-between align-items-center me-2"
-                >
-                  <i class="far fa-thumbs-up"></i>
-                  ( 3 )
-                </span>
-                <span
-                  class=" d-flex justify-content-between align-items-center"
-                >
-                  <i class="far fa-thumbs-down"></i>
-                  ( 1 )
-                </span>
-              </small>
-            </div>
-          </div>
+            :answer="answer"
+          />
+
+          <!-- /Answers -->
         </div>
       </div>
     </div>
@@ -68,14 +62,31 @@
 <script>
 import helperMixin from "../utils/helperMixin";
 import { appAxios } from "../utils/appAxios";
+import Answer from "../components/QuestionDetail/Answer.vue";
 
 export default {
   mixins: [helperMixin],
   data() {
     return {
       question: null,
-      isLoaded: false
+      isLoaded: false,
+      userData: {
+        content: null,
+        questionId: Number(this.$route.params.id),
+        userId: 1
+      }
     };
+  },
+  components: {
+    Answer
+  },
+  methods: {
+    addAnswer() {
+      this.$store.dispatch("questions/saveAnswer", {
+        created_at: new Date(),
+        ...this.userData
+      });
+    }
   },
   created() {
     appAxios
@@ -85,7 +96,7 @@ export default {
       .then(res => {
         setTimeout(() => {
           this.question = { ...res.data };
-          console.log(res.data);
+
           this.isLoaded = true;
         }, 500);
       })

@@ -23,7 +23,9 @@
         <small>
           <b><i class="fas fa-comment-dots"></i> {{ answerCount }}</b></small
         >
-        <small v-if="question.answers.length !== 0" class="text-muted ms-1">| {{ timesAgo(answerDate) }}</small>
+        <small v-if="question.answers.length !== 0" class="text-muted ms-1"
+          >| {{ timesAgo(answerDate) }}</small
+        >
       </div>
       <router-link tag="button" :to="showQuestion" class="btn btn-outline-dark">
         Soruyu görüntüle
@@ -61,8 +63,6 @@ export default {
       if (this.question.answers.length !== 0) {
         return this.question.answers[this.question.answers.length - 1]
           .created_at;
-      }else{
-        return
       }
     }
   }

@@ -62,13 +62,12 @@ export default {
   data() {
     return {
       key: "",
-
       isAuth: true
     };
   },
   computed: {
     filter() {
-      this.$store.dispatch("filterQuestions", this.key);
+      this.$store.dispatch("questions/filterQuestions", this.key);
     }
   }
 };

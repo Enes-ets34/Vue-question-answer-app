@@ -14,6 +14,9 @@ export default {
     },
     filterQuestions(state, filteredList) {
       state.questions = filteredList;
+    },
+    addAnswer(state, answer) {
+      state.questions.forEach(i => i.answers.push(answer));
     }
   },
   actions: {
@@ -39,9 +42,20 @@ export default {
         .then(res => commit("newQuestion", res?.data))
         .catch(err => console.error(err));
     },
+    saveAnswer({ commit }, answer) {
+      appAxios.post("/answers", answer).then(res => {
+        commit("addAnswer", res.data);
+        console.log(res);
+      });
+    },
     filterQuestions({ commit, state }, key) {
-      let filteredList = state.questions.filter(
-        i => i.title.includes(key) || state.questions
+      let filteredList = state.questions.filter(i =>
+        i.title
+          .toLowerCase()
+          .includes(
+            key.toLowerCase() ||
+              i.content.toLowerCase().includes(key.toLowerCase())
+          )
       );
       commit("filterQuestions", filteredList);
     }
