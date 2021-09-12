@@ -86,6 +86,7 @@ export default {
         created_at: new Date(),
         ...this.userData
       });
+      // this.$router.push({ name: "Home" });
     }
   },
   created() {

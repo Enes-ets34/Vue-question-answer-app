@@ -49,27 +49,6 @@
       "id": 4
     },
     {
-      "created_at": "2021-09-07T18:15:15.055Z",
-      "title": "Abiler Merhaba",
-      "content": "Abiler merhaba ben boş yapmaya geldım",
-      "categoryId": 4,
-      "id": 5
-    },
-    {
-      "created_at": "2021-09-08T05:49:16.020Z",
-      "title": "hülooo",
-      "content": "hülooooooo örnek soru",
-      "categoryId": 5,
-      "id": 6
-    },
-    {
-      "created_at": "2021-09-08T06:23:58.877Z",
-      "title": "Node.js",
-      "content": "arkidişler node ile ilgili kimse niye soru sormamış yau ?",
-      "categoryId": 5,
-      "id": 7
-    },
-    {
       "created_at": "2021-09-08T12:03:10.548Z",
       "title": "angular mı react mı?",
       "content": "yoksa vue mu?",
@@ -91,11 +70,18 @@
       "id": 10
     },
     {
-      "created_at": "2021-09-12T08:53:27.169Z",
-      "title": "baba halletti mi?",
-      "content": "vallahi halletti beee",
-      "categoryId": 3,
-      "id": 11
+      "created_at": "2021-09-12T14:06:20.407Z",
+      "title": "React ın popülerliği",
+      "content": "dostlar bu react çok popüler sektörde nedenkine ?",
+      "categoryId": "2",
+      "id": 12
+    },
+    {
+      "created_at": "2021-09-12T14:48:13.691Z",
+      "title": "React Native?",
+      "content": "sizce react native mi yoksa ionic ile vue veya angular mı?",
+      "categoryId": 8,
+      "id": 13
     }
   ],
   "answers": [
@@ -133,6 +119,48 @@
       "questionId": 10,
       "userId": 1,
       "id": 6
+    },
+    {
+      "created_at": "2021-09-12T13:48:36.819Z",
+      "content": "vue gardasss",
+      "questionId": 8,
+      "userId": 1,
+      "id": 7
+    },
+    {
+      "created_at": "2021-09-12T14:02:24.933Z",
+      "content": "Gökhan kandemir var kendisi makina gibi maşAllah...",
+      "questionId": 4,
+      "userId": 1,
+      "id": 8
+    },
+    {
+      "created_at": "2021-09-12T14:03:05.468Z",
+      "content": "sormadık kanka problem ?",
+      "questionId": 7,
+      "userId": 1,
+      "id": 9
+    },
+    {
+      "created_at": "2021-09-12T14:05:42.506Z",
+      "content": "kanka sorunun ne oldugunu yazarsan yardımcı olmaya çalışırız.",
+      "questionId": 2,
+      "userId": 1,
+      "id": 10
+    },
+    {
+      "created_at": "2021-09-12T14:11:10.484Z",
+      "content": "onu bunu anlamam ben vue cuyum arkadaş",
+      "questionId": 12,
+      "userId": 1,
+      "id": 11
+    },
+    {
+      "created_at": "2021-09-12T14:17:46.460Z",
+      "content": "Kanka ne bilelim",
+      "questionId": 9,
+      "userId": 1,
+      "id": 12
     }
   ],
   "users": []

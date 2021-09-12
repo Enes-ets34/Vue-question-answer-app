@@ -23,7 +23,7 @@
         <small>
           <b><i class="fas fa-comment-dots"></i> {{ answerCount }}</b></small
         >
-        <small v-if="question.answers.length !== 0" class="text-muted ms-1"
+        <small v-if="question?.answers.length !== 0" class="text-muted ms-1"
           >| {{ timesAgo(answerDate) }}</small
         >
       </div>
@@ -47,22 +47,24 @@ export default {
   created() {},
 
   computed: {
+    answerDate() {
+      if (this.question?.answers.length !== 0) {
+        return this.question?.answers[this.question?.answers.length - 1]
+          .created_at;
+      } else {
+        return false;
+      }
+    },
     showQuestion() {
       return `/question-detail/${this.question.id}`;
     },
     answerCount() {
       if (this.question?.answers) {
-        if (this.question.answers.length === 0) {
+        if (this.question?.answers.length === 0) {
           return "henüz cevap yok.";
         } else {
-          return this.question.answers.length + " Cevap";
+          return this.question?.answers.length + " Cevap";
         }
-      }
-    },
-    answerDate() {
-      if (this.question.answers.length !== 0) {
-        return this.question.answers[this.question.answers.length - 1]
-          .created_at;
       }
     }
   }

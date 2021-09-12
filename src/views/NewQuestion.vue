@@ -72,8 +72,8 @@ export default {
     return {
       userData: {
         title: null,
-        content: "",
-        categoryId: ""
+        content: null,
+        categoryId: null
       }
     };
   },
@@ -84,11 +84,10 @@ export default {
   },
   methods: {
     saveUserData() {
-      this.$store.dispatch("questions/saveQuestion", {
-        created_at: new Date(),
-        ...this.userData
-      });
-      this.$router.push({ name: "Home" });
+      appAxios
+        .post("/questions", { created_at: new Date(), ...this.userData })
+        .then(res => this.$router.push({ name: "Home" }))
+        .catch(err => console.error(err));
     }
   },
 

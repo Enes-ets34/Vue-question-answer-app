@@ -9,9 +9,7 @@ export default {
     setQuestions(state, pQuestions) {
       state.questions = pQuestions;
     },
-    newQuestion(state, question) {
-      state.questions.unshift(question);
-    },
+  
     filterQuestions(state, filteredList) {
       state.questions = filteredList;
     },
@@ -36,12 +34,7 @@ export default {
         .then(res => commit("setQuestions", res?.data || []))
         .catch(err => console.error(err));
     },
-    saveQuestion({ commit }, userData) {
-      appAxios
-        .post("/questions", userData)
-        .then(res => commit("newQuestion", res?.data))
-        .catch(err => console.error(err));
-    },
+  
     saveAnswer({ commit }, answer) {
       appAxios.post("/answers", answer).then(res => {
         commit("addAnswer", res.data);
