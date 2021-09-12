@@ -6,7 +6,7 @@
         <div class="card-body">
           <div class="form-group">
             <div class="mb-3">
-              <label for="title" class="form-label">Adınız ve Soyadınız</label>
+              <label for="title" class="form-label">Kısa bir başlık </label>
               <input
                 v-model="userData.title"
                 id="title"
@@ -35,7 +35,7 @@
                 <option
                   v-for="category in categories"
                   :value="category.id"
-                  :key="category.id"
+                  :key="category"
                 >
                   {{ category.title }}
                 </option>
@@ -61,6 +61,7 @@
 
 <script>
 import { mapGetters } from "vuex";
+import { appAxios } from "../utils/appAxios";
 
 export default {
   data() {
@@ -68,13 +69,18 @@ export default {
       userData: {
         title: null,
         content: "",
-        categoryId: null
+        categoryId: ""
       }
     };
   },
   created() {
-    this.userData.categoryId = this.$route.query?.categoryId || null;
-    this.userData.title = this.$route.query?.categoryId || null;
+    if (this.$route.query?.categoryId) {
+      this.userData.categoryId =
+        Number(JSON.stringify(this.$route.query?.categoryId).slice(1, 2)) ||
+        null;
+
+      console.log(JSON.stringify(this.$route.query.categoryId));
+    }
   },
   methods: {
     saveUserData() {

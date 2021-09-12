@@ -1,17 +1,17 @@
 <template>
-  <div v-if="questionList.length === 0" class="alert alert-warning">
+  <div v-if="questionList.length > 0">
+    <Question
+      v-for="question in questionList"
+      :key="question"
+      :question="question"
+    />
+  </div>
+  <div v-else class="alert alert-warning">
     <p class="display-6 text-center text-dark">
       Bu kategori(lere) ait soru bulunamadı :(. İlk soruyu sormak için
       <router-link :to="newQuestionUrl">buraya tıkla</router-link>
     </p>
   </div>
-
-  <Question
-    v-else
-    v-for="question in questionList"
-    :key="question.id"
-    :question="question"
-  />
 </template>
 
 <script>
@@ -37,7 +37,7 @@ export default {
       selectedCategories: "categories/getSelectedCategories"
     }),
     selectedCategory() {
-      if (this.selectedCategories.length === 1) {
+      if (this.selectedCategories?.length === 1) {
         return this.selectedCategories[0]?.id;
       } else {
         return false;
@@ -52,6 +52,4 @@ export default {
 };
 </script>
 
-<style>
-
-</style>
+<style></style>

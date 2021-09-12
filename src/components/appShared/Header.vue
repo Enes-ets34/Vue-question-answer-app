@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-warning sticky-top">
+  <nav class="navbar navbar-expand-lg navbar-light bg-warning mb-5 sticky-top">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Soru-Cevap</a>
       <button
@@ -16,14 +16,34 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <router-link to="/" active-class="active" class="nav-link" aria-current="page" href="#">Anasayfa</router-link>
+            <router-link
+              to="/"
+              active-class="active"
+              class="nav-link"
+              aria-current="page"
+              href="#"
+              >Anasayfa</router-link
+            >
           </li>
           <li v-if="isAuth" class="nav-item">
-            <router-link to="/new" class="btn btn-outline-dark" active-class="active" href="#"><i class="fas fa-question me-2"></i>Soru Sor</router-link>
+            <router-link
+              to="/new"
+              class="btn btn-outline-dark"
+              active-class="active"
+              href="#"
+              ><i class="fas fa-question me-2"></i>Soru Sor</router-link
+            >
           </li>
         </ul>
         <div class="form-group me-auto">
-          <input class="form-control" type="search" placeholder="Search" aria-label="Search" />
+          <input
+            v-model="key"
+            @keydown.enter="filter"
+            class="form-control"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+          />
         </div>
         <!-- User dropdown -->
         <user-list-item v-if="isAuth"></user-list-item>
@@ -36,14 +56,21 @@
 
 <script>
 import UserListItem from "./UserListItem.vue";
+
 export default {
   components: { UserListItem },
   data() {
     return {
+      key: "",
+
       isAuth: true
     };
   },
-  computed: {}
+  computed: {
+    filter() {
+      this.$store.commit("filterQuestions", this.key);
+    }
+  }
 };
 </script>
 

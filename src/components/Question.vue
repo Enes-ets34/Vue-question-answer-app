@@ -48,10 +48,12 @@ export default {
       return `/question-detail/${this.question.id}`;
     },
     answerCount() {
-      if (this.question.answers.length === 0) {
-        return "henüz cevap yok.";
-      } else {
-        return this.question.answers.length + " Cevap";
+      if (this.question?.answers) {
+        if (this.question.answers.length === 0) {
+          return "henüz cevap yok.";
+        } else {
+          return this.question.answers.length + " Cevap";
+        }
       }
     }
   }

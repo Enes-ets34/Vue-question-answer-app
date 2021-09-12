@@ -9,18 +9,25 @@ export default {
     setQuestions(state, pQuestions) {
       state.questions = pQuestions;
     },
-    fillQuestion(state, userData) {
-      state.questions.push(userData);
+    newQuestion(state, question) {
+      state.questions.unshift(question);
+    },
+    filterQuestions(state, key) {
+      state.questions = state.questions.filter(
+        i => i.title.includes(key) || state.questions
+      );
     }
   },
   actions: {
     fetchQuestions({ commit }, selectedCategories) {
-      let url = "/questions?_expand=category&_sort=created_at&_order=desc&_embed=answers";
+      let url =
+        "/questions?_expand=category&_sort=created_at&_order=desc&_embed=answers";
       if (selectedCategories) {
         const IDs = selectedCategories
           .filter(c => c.selected)
           .map(c => `categoryId=${c.id}`)
           .join("&");
+
         url = `${url}&${IDs}`;
       }
       appAxios
@@ -30,8 +37,8 @@ export default {
     },
     saveQuestion({ commit }, userData) {
       appAxios
-        .post("/questions", { ...userData })
-        .then(res => commit("fillQuestion", { ...userData }))
+        .post("/questions", userData)
+        .then(res => commit("newQuestion", res?.data))
         .catch(err => console.error(err));
     }
   },
