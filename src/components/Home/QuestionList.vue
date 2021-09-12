@@ -45,7 +45,7 @@ export default {
     },
     newQuestionUrl() {
       return this.selectedCategory
-        ? `/new?categoryId=${this.selectedCategory}`
+        ? `/new?categoryId=${this.selectedCategory}`
         : "/new";
     }
   }

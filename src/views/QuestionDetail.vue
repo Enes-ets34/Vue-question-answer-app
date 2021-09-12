@@ -1,6 +1,6 @@
 <template>
-
-    <div v-if="isLoaded" class="col-md-6 mx-auto mt-5 shadow">
+  <div v-if="isLoaded" class="p-2">
+    <div class="col-md-6 mx-auto mt-5 shadow ">
       <div class="card">
         <div class="card-header">
           <h4>{{ question.title }}</h4>
@@ -30,7 +30,7 @@
             v-else
             v-for="answer in question.answers"
             :key="answer.id"
-            class="card "
+            class="card my-2 "
           >
             <div class="card-body">
               {{ answer.content }}
@@ -61,8 +61,8 @@
         </div>
       </div>
     </div>
-    <app-loading v-else></app-loading>
-
+  </div>
+  <app-loading v-else></app-loading>
 </template>
 
 <script>
@@ -93,6 +93,4 @@ export default {
   }
 };
 </script>
-<style>
-
-</style>
+<style></style>
