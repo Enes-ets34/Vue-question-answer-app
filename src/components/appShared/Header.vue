@@ -68,7 +68,7 @@ export default {
   },
   computed: {
     filter() {
-      this.$store.commit("filterQuestions", this.key);
+      this.$store.dispatch("filterQuestions", this.key);
     }
   }
 };

@@ -12,10 +12,8 @@ export default {
     newQuestion(state, question) {
       state.questions.unshift(question);
     },
-    filterQuestions(state, key) {
-      state.questions = state.questions.filter(
-        i => i.title.includes(key) || state.questions
-      );
+    filterQuestions(state, filteredList) {
+      state.questions = filteredList;
     }
   },
   actions: {
@@ -40,6 +38,12 @@ export default {
         .post("/questions", userData)
         .then(res => commit("newQuestion", res?.data))
         .catch(err => console.error(err));
+    },
+    filterQuestions({ commit, state }, key) {
+      let filteredList = state.questions.filter(
+        i => i.title.includes(key) || state.questions
+      );
+      commit("filterQuestions", filteredList);
     }
   },
   getters: {

@@ -23,7 +23,7 @@
         <small>
           <b><i class="fas fa-comment-dots"></i> {{ answerCount }}</b></small
         >
-        <small class="text-muted ms-1">| 2 Gün önce</small>
+        <small v-if="question.answers.length !== 0" class="text-muted ms-1">| {{ timesAgo(answerDate) }}</small>
       </div>
       <router-link tag="button" :to="showQuestion" class="btn btn-outline-dark">
         Soruyu görüntüle
@@ -42,6 +42,7 @@ export default {
       required: true
     }
   },
+  created() {},
 
   computed: {
     showQuestion() {
@@ -54,6 +55,14 @@ export default {
         } else {
           return this.question.answers.length + " Cevap";
         }
+      }
+    },
+    answerDate() {
+      if (this.question.answers.length !== 0) {
+        return this.question.answers[this.question.answers.length - 1]
+          .created_at;
+      }else{
+        return
       }
     }
   }
