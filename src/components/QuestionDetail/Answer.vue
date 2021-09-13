@@ -1,5 +1,6 @@
 <template>
   <div class="card my-2 ">
+    
     <div class="card-body">
       {{ answer.content }}
     </div>

@@ -14,20 +14,29 @@
         </small>
 
         <small class="card-text w-50 text-end text-muted text-wrap "
-          ><i class="fas fa-list me-1"></i>{{ question?.category?.title }}
+          ><i class="fas fa-list me-1"></i
+          >{{ question?.category?.title || "-" }}
         </small>
       </div>
     </div>
     <div class="card-footer align-items-center d-flex justify-content-between">
-      <div>
+      <router-link
+        tag="div"
+        class="text-dark text-decoration-none"
+        :to="showQuestion"
+      >
         <small>
           <b><i class="fas fa-comment-dots"></i> {{ answerCount }}</b></small
         >
         <small v-if="question?.answers.length !== 0" class="text-muted ms-1"
           >| {{ timesAgo(answerDate) }}</small
         >
-      </div>
-      <router-link tag="button" :to="showQuestion" class="btn btn-outline-dark">
+      </router-link>
+      <router-link
+        tag="button"
+        :to="showQuestion"
+        class="btn btn-outline-dark d-none d-sm-block"
+      >
         Soruyu görüntüle
       </router-link>
     </div>

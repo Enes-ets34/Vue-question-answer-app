@@ -9,12 +9,9 @@ export default {
     setQuestions(state, pQuestions) {
       state.questions = pQuestions;
     },
-  
+
     filterQuestions(state, filteredList) {
       state.questions = filteredList;
-    },
-    addAnswer(state, answer) {
-      state.questions.forEach(i => i.answers.push(answer));
     }
   },
   actions: {
@@ -34,7 +31,7 @@ export default {
         .then(res => commit("setQuestions", res?.data || []))
         .catch(err => console.error(err));
     },
-  
+
     saveAnswer({ commit }, answer) {
       appAxios.post("/answers", answer).then(res => {
         commit("addAnswer", res.data);
@@ -42,15 +39,19 @@ export default {
       });
     },
     filterQuestions({ commit, state }, key) {
-      let filteredList = state.questions.filter(i =>
-        i.title
-          .toLowerCase()
-          .includes(
-            key.toLowerCase() ||
-              i.content.toLowerCase().includes(key.toLowerCase())
-          )
-      );
-      commit("filterQuestions", filteredList);
+      if (key === "") {
+        return state.questions;
+      } else {
+        let filteredList = state.questions.filter(i =>
+          i.title
+            .toLowerCase()
+            .includes(
+              key.toLowerCase() ||
+                i.content.toLowerCase().includes(key.toLowerCase())
+            )
+        );
+        commit("filterQuestions", filteredList);
+      }
     }
   },
   getters: {

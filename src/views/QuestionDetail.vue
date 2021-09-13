@@ -22,10 +22,11 @@
         </div>
         <div class="card-footer">
           <div class="form-group mb-2  d-flex align-items-center">
-            <input
+            <textarea
               v-model="userData.content"
               @keypress.enter="addAnswer()"
               type="text"
+              rows="2"
               placeholder="Bu soruya yanıt ekle..."
               class="form-control rounded-pill"
             />
@@ -35,6 +36,14 @@
             </button>
           </div>
           <hr />
+          <div class="text-center">
+            <div
+              v-if="answerLoading"
+              class="spinner-border text-dark m-5 "
+              style="width: 1.5rem; height: 1.5rem;"
+              role="status"
+            ></div>
+          </div>
           <!-- Alert -->
           <div v-if="question.answers.length === 0">
             <div class="alert alert-warning">
@@ -70,6 +79,7 @@ export default {
     return {
       question: null,
       isLoaded: false,
+      answerLoading: false,
       userData: {
         content: null,
         questionId: Number(this.$route.params.id),
@@ -82,10 +92,18 @@ export default {
   },
   methods: {
     addAnswer() {
-      this.$store.dispatch("questions/saveAnswer", {
-        created_at: new Date(),
-        ...this.userData
-      });
+      this.answerLoading = true;
+
+      setTimeout(() => {
+        this.$store.dispatch("questions/saveAnswer", {
+          created_at: new Date(),
+          ...this.userData
+        });
+        this.question.answers.unshift({ ...this.userData });
+        this.answerLoading = false;
+        this.userData.content = "";
+      }, 500);
+
       // this.$router.push({ name: "Home" });
     }
   },
