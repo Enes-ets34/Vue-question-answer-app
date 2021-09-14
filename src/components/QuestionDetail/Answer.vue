@@ -1,9 +1,6 @@
 <template>
   <div class="card my-2 ">
-    
-    <div class="card-body">
-      {{ answer.content }}
-    </div>
+    <div class="card-body" v-html="answer.content"></div>
     <div class="card-footer d-flex justify-content-between align-items-center">
       <small class="card-text text-muted">
         <i class="fas fa-user"></i> {{ answer.userId }}

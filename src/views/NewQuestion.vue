@@ -18,13 +18,7 @@
               </div>
               <div class="mb-3">
                 <label for="content" class="form-label">Sorunuz</label>
-                <textarea
-                  v-model="userData.content"
-                  class="form-control"
-                  id="content"
-                  placeholder="Sorunuzu açıklayınız..."
-                  rows="5"
-                ></textarea>
+                <quill-editor v-model:value="userData.content" />
               </div>
               <div class="mb-3">
                 <label for="question-category" class="form-label"
@@ -66,7 +60,7 @@
 <script>
 import { mapGetters } from "vuex";
 import { appAxios } from "../utils/appAxios";
-
+import Quill from "quill";
 export default {
   data() {
     return {
@@ -77,10 +71,9 @@ export default {
       }
     };
   },
+
   created() {
-    if (this.$route.query.categoryId) {
-      this.userData.categoryId = this.$route.query.categoryId;
-    }
+    this.userData.categoryId = this.$route.query?.categoryId || null;
   },
   methods: {
     saveUserData() {

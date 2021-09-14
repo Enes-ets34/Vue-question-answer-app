@@ -8,14 +8,10 @@ export default {
   mutations: {
     setQuestions(state, pQuestions) {
       state.questions = pQuestions;
-    },
-
-    filterQuestions(state, filteredList) {
-      state.questions = filteredList;
     }
   },
   actions: {
-    fetchQuestions({ commit }, selectedCategories) {
+    fetchQuestions({ commit }, { selectedCategories, searchKey }) {
       let url =
         "/questions?_expand=category&_sort=created_at&_order=desc&_embed=answers";
       if (selectedCategories) {
@@ -25,6 +21,9 @@ export default {
           .join("&");
 
         url = `${url}&${IDs}`;
+      }
+      if (searchKey) {
+        url = `${url}?q=${searchKey}`;
       }
       appAxios
         .get(url)
@@ -37,21 +36,6 @@ export default {
         commit("addAnswer", res.data);
         console.log(res);
       });
-    },
-    filterQuestions({ commit, state }, key) {
-      if (key === "") {
-        return state.questions;
-      } else {
-        let filteredList = state.questions.filter(i =>
-          i.title
-            .toLowerCase()
-            .includes(
-              key.toLowerCase() ||
-                i.content.toLowerCase().includes(key.toLowerCase())
-            )
-        );
-        commit("filterQuestions", filteredList);
-      }
     }
   },
   getters: {

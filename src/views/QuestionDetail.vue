@@ -6,9 +6,7 @@
           <h4>{{ question.title }}</h4>
         </div>
         <div class="card-body">
-          <p class="card-text">
-            {{ question.content }}
-          </p>
+          <p class="card-text" v-html="question.content"></p>
           <div class="d-flex justify-content-between align-items-center">
             <small class="card-text text-muted">
               <i class="fas fa-user"></i> Enes Taha Sarı

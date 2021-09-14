@@ -38,7 +38,7 @@
         <div class="form-group me-auto">
           <input
             v-model="key"
-            @keydown.enter="filter"
+            @keydown.enter="search()"
             class="form-control"
             type="search"
             placeholder="Search"
@@ -55,6 +55,7 @@
 </template>
 
 <script>
+import { appAxios } from "../../utils/appAxios";
 import UserListItem from "./UserListItem.vue";
 
 export default {
@@ -65,9 +66,9 @@ export default {
       isAuth: true
     };
   },
-  computed: {
-    filter() {
-      this.$store.dispatch("questions/filterQuestions", this.key);
+  methods: {
+    search() {
+      this.$store.dispatch("questions/fetchQuestions", { searchKey: this.key });
     }
   }
 };

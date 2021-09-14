@@ -11,7 +11,7 @@
   <Question
     v-else
     v-for="question in questionList"
-    :key="question"
+    :key="question.id"
     :question="question"
   />
 </template>
@@ -32,7 +32,7 @@ export default {
     }),
     selectedCategory() {
       if (this.selectedCategories?.length === 1) {
-        return this.selectedCategories[0]?.id; 
+        return this.selectedCategories[0]?.id;
       } else {
         return false;
       }
@@ -45,9 +45,13 @@ export default {
   },
   created() {
     this.$store.dispatch("questions/fetchQuestions", this.selectedCategories);
-    console.log(this.questionList);
   }
 };
 </script>
 
-<style></style>
+<style>
+img {
+  width: 100% !important;
+
+}
+</style>

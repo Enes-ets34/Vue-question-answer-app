@@ -4,9 +4,7 @@
       <h4>{{ question.title }}</h4>
     </div>
     <div class="card-body">
-      <p class="card-text">
-        {{ question.content }}
-      </p>
+      <p class="card-text" v-html="question.content"></p>
       <div class="d-flex justify-content-between align-items-center">
         <small class="card-text text-muted">
           <i class="fas fa-user"></i> Enes Taha Sarı
@@ -29,8 +27,8 @@
           <b><i class="fas fa-comment-dots"></i> {{ answerCount }}</b></small
         >
         <small v-if="question?.answers.length !== 0" class="text-muted ms-1"
-          >| {{ timesAgo(answerDate) }}</small
-        >
+          >| {{ timesAgo(answerDate) }}
+        </small>
       </router-link>
       <router-link
         tag="button"
@@ -53,11 +51,16 @@ export default {
       required: true
     }
   },
-  created() {},
+  created() {
+    console.log(this.question.answers);
+  },
 
   computed: {
     answerDate() {
-      if (this.question?.answers.length !== 0) {
+      if (
+        this.question?.answers.length !== 0 ||
+        this.question?.answers.type === undefined
+      ) {
         return this.question?.answers[this.question?.answers.length - 1]
           .created_at;
       } else {
@@ -68,16 +71,13 @@ export default {
       return `/question-detail/${this.question.id}`;
     },
     answerCount() {
-      if (this.question?.answers) {
-        if (this.question?.answers.length === 0) {
-          return "henüz cevap yok.";
-        } else {
-          return this.question?.answers.length + " Cevap";
-        }
-      }
+      const count = this.question?.answers?.length || 0;
+      return count > 0 ? `${count} cevap` : "Cevap Yok";
     }
   }
 };
 </script>
 
-<style></style>
+<style>
+
+</style>
