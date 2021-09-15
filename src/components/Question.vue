@@ -51,9 +51,6 @@ export default {
       required: true
     }
   },
-  created() {
-    console.log(this.question.answers);
-  },
 
   computed: {
     answerDate() {
@@ -78,6 +75,4 @@ export default {
 };
 </script>
 
-<style>
-
-</style>
+<style></style>

@@ -1,13 +1,38 @@
 <template>
-  <div v-if="isLoaded" class="p-2">
+  <div v-if="isLoaded" class="p-2 my-5">
     <div class="col-md-6 mx-auto mt-5 shadow ">
       <div class="card">
-        <div class="card-header">
+        <div
+          class="card-header d-flex justify-content-between align-items-center"
+        >
           <h4>{{ question.title }}</h4>
+          <a
+            href="#"
+            v-if="!editQuestion"
+            @click="editQuestion = true"
+            class="text-dark"
+            ><i class="fas fa-edit"></i> Düzenle</a
+          >
+          <a href="#" v-else @click="editQuestion = false" class="text-danger"
+            ><i class="fas fa-edit"></i> İptal</a
+          >
         </div>
         <div class="card-body">
-          <p class="card-text" v-html="question.content"></p>
-          <div class="d-flex justify-content-between align-items-center">
+          <quill-editor
+            v-if="editQuestion"
+            v-html="updatedQuestion"
+            v-model="updatedQuestion"
+          >
+          </quill-editor>
+          <p v-else class="card-text" v-html="question.content"></p>
+          <div class="d-flex justify-content-between align-items-center mt-2">
+            <button
+              @click="updateQuestion"
+              v-if="editQuestion"
+              class="btn btn-dark"
+            >
+              Güncelle
+            </button>
             <small class="card-text text-muted">
               <i class="fas fa-user"></i> Enes Taha Sarı
               {{ timesAgo(question.created_at) }} sordu.</small
@@ -19,20 +44,15 @@
           </div>
         </div>
         <div class="card-footer">
-          <div class="form-group mb-2  d-flex align-items-center">
-            <textarea
-              v-model="userData.content"
-              @keypress.enter="addAnswer()"
-              type="text"
-              rows="2"
-              placeholder="Bu soruya yanıt ekle..."
-              class="form-control rounded-pill"
-            />
+          <quill-editor
+            v-model:value="userData.content"
+            placeholder="Bu soruya yanıt ekle..."
+          />
 
-            <button class="btn btn-outline">
-              <i class="fas fa-paper-plane"></i>
-            </button>
-          </div>
+          <button @click="addAnswer()" class="btn btn-outline-dark mt-1">
+            Yanıtla <i class="fas fa-paper-plane"></i>
+          </button>
+
           <hr />
           <div class="text-center">
             <div
@@ -82,7 +102,9 @@ export default {
         content: null,
         questionId: Number(this.$route.params.id),
         userId: 1
-      }
+      },
+      updatedQuestion: null,
+      editQuestion: false
     };
   },
   components: {
@@ -103,6 +125,14 @@ export default {
       }, 500);
 
       // this.$router.push({ name: "Home" });
+    },
+    updateQuestion() {
+      appAxios
+        .patch(`/questions/${this.$route.params.id}`, {
+          content: this.updatedQuestion
+        })
+        .then(res => console.log(res))
+        .catch(err => console.error(err));
     }
   },
   created() {
@@ -118,7 +148,16 @@ export default {
         }, 500);
       })
       .catch(err => console.error(err));
+  },
+  watch: {
+    editQuestion(editQuestion) {
+      if (editQuestion) {
+        this.updatedQuestion = this.question.content;
+        console.log(this.updatedQuestion);
+      } else {
+        this.updatedQuestion = null;
+      }
+    }
   }
 };
 </script>
-<style></style>
