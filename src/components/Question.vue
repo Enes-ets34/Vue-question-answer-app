@@ -1,7 +1,10 @@
 <template>
   <div class="card mb-3 shadow">
-    <div class="card-header">
+    <div class="card-header d-flex justify-content-between align-items-center">
       <h4>{{ question.title }}</h4>
+      <h5>
+        <i class="fas fa-heart text-muted"></i>
+      </h5>
     </div>
     <div class="card-body">
       <p class="card-text" v-html="question.content"></p>
@@ -70,7 +73,8 @@ export default {
     answerCount() {
       const count = this.question?.answers?.length || 0;
       return count > 0 ? `${count} cevap` : "Cevap Yok";
-    }
+    },
+  
   }
 };
 </script>

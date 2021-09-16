@@ -78,7 +78,11 @@ export default {
   methods: {
     saveUserData() {
       appAxios
-        .post("/questions", { created_at: new Date(), ...this.userData })
+        .post("/questions", {
+          created_at: new Date(),
+          userId: this.currentUser.id,
+          ...this.userData
+        })
         .then(res => this.$router.push({ name: "Home" }))
         .catch(err => console.error(err));
     }
@@ -91,7 +95,8 @@ export default {
       );
     },
     ...mapGetters({
-      categories: "categories/getCategories"
+      categories: "categories/getCategories",
+      currentUser: "users/currentUser"
     })
   }
 };

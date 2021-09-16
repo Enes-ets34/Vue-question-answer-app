@@ -13,7 +13,7 @@ export default {
   actions: {
     fetchQuestions({ commit }, { selectedCategories, searchKey }) {
       let url =
-        "/questions?_expand=category&_sort=created_at&_order=desc&_embed=answers";
+        "/questions?_expand=category&&_sort=created_at&_order=desc&_embed=answers";
       if (selectedCategories) {
         const IDs = selectedCategories
           .filter(c => c.selected)

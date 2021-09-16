@@ -119,6 +119,15 @@
       "content": "<p>Regex ile ilgili kimse soru paylaşmamış bende soru değilde bir kaynak paylaşayım bari :D</p><iframe class=\"ql-video\" frameborder=\"0\" allowfullscreen=\"true\" src=\"https://www.youtube.com/embed/bF_zEzFQZuA?showinfo=0\"></iframe><p><br></p>",
       "categoryId": 5,
       "id": 17
+    },
+    {
+      "created_at": "2021-09-16T18:07:50.005Z",
+      "userId": 1,
+      "title": "Heroku",
+      "content": "<p><span class=\"ql-size-large\">Dostlar her0ku ile ilgili bi kaynak önerebilecek var mı? Gokhan hocanın vardı sanki.</span></p>",
+      "categoryId": 5,
+      "id": 18,
+      "updated_at": "2021-09-16T18:37:39.805Z"
     }
   ],
   "answers": [
@@ -282,6 +291,13 @@
       "questionId": 17,
       "userId": 1,
       "id": 24
+    },
+    {
+      "created_at": "2021-09-16T18:29:34.466Z",
+      "content": "<p>buyrun efenim. </p><iframe class=\"ql-video\" frameborder=\"0\" allowfullscreen=\"true\" src=\"https://www.youtube.com/embed/YPqgLHiidGs?showinfo=0\"></iframe><p><br></p>",
+      "questionId": 18,
+      "userId": 1,
+      "id": 25
     }
   ],
   "users": [
@@ -309,5 +325,6 @@
       "bio": null,
       "id": 3
     }
-  ]
+  ],
+  "favorites": []
 }

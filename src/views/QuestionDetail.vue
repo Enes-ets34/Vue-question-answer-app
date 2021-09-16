@@ -18,11 +18,7 @@
           >
         </div>
         <div class="card-body">
-          <quill-editor
-            v-if="editQuestion"
-            v-html="updatedQuestion"
-            v-model="updatedQuestion"
-          >
+          <quill-editor v-if="editQuestion" v-model:value="updatedQuestion">
           </quill-editor>
           <p v-else class="card-text" v-html="question.content"></p>
           <div class="d-flex justify-content-between align-items-center mt-2">
@@ -90,6 +86,7 @@
 import helperMixin from "../utils/helperMixin";
 import { appAxios } from "../utils/appAxios";
 import Answer from "../components/QuestionDetail/Answer.vue";
+import { mapGetters } from "vuex";
 
 export default {
   mixins: [helperMixin],
@@ -100,12 +97,16 @@ export default {
       answerLoading: false,
       userData: {
         content: null,
-        questionId: Number(this.$route.params.id),
-        userId: 1
+        questionId: Number(this.$route.params.id)
       },
       updatedQuestion: null,
       editQuestion: false
     };
+  },
+  computed: {
+    ...mapGetters({
+      currentUser: "users/currentUser"
+    })
   },
   components: {
     Answer
@@ -117,6 +118,7 @@ export default {
       setTimeout(() => {
         this.$store.dispatch("questions/saveAnswer", {
           created_at: new Date(),
+          userId: this.currentUser.id,
           ...this.userData
         });
         this.question.answers.unshift({ ...this.userData });
@@ -127,11 +129,17 @@ export default {
       // this.$router.push({ name: "Home" });
     },
     updateQuestion() {
+      console.log(this.updatedQuestion);
+
       appAxios
         .patch(`/questions/${this.$route.params.id}`, {
+          updated_at: new Date(),
           content: this.updatedQuestion
         })
-        .then(res => console.log(res))
+        .then(res => {
+          this.question.content = this.updatedQuestion;
+          this.editQuestion = false;
+        })
         .catch(err => console.error(err));
     }
   },
