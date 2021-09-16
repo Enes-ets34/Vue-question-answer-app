@@ -25,7 +25,7 @@
               >Anasayfa</router-link
             >
           </li>
-          <li v-if="isAuth" class="nav-item">
+          <li class="nav-item">
             <router-link
               to="/new"
               class="btn btn-outline-dark"
@@ -46,8 +46,13 @@
           />
         </div>
         <!-- User dropdown -->
-        <user-list-item v-if="isAuth"></user-list-item>
-        <button v-else class="btn btn-dark">Giriş Yap</button>
+        <user-list-item
+          v-if="isAuth"
+          :currentUser="currentUser"
+        ></user-list-item>
+        <router-link to="/login" v-else class="btn btn-dark"
+          >Giriş Yap</router-link
+        >
         <!-- /User dropdown -->
       </div>
     </div>
@@ -55,7 +60,8 @@
 </template>
 
 <script>
-import { appAxios } from "../../utils/appAxios";
+import { mapGetters } from "vuex";
+
 import UserListItem from "./UserListItem.vue";
 
 export default {
@@ -63,13 +69,19 @@ export default {
   data() {
     return {
       key: "",
-      isAuth: true
+
     };
   },
   methods: {
     search() {
       this.$store.dispatch("questions/fetchQuestions", { searchKey: this.key });
     }
+  },
+  computed: {
+    ...mapGetters({
+      currentUser: "users/currentUser",
+      isAuth: "users/isAuth"
+    })
   }
 };
 </script>

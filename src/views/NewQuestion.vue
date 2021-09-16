@@ -60,7 +60,7 @@
 <script>
 import { mapGetters } from "vuex";
 import { appAxios } from "../utils/appAxios";
-import Quill from "quill";
+
 export default {
   data() {
     return {

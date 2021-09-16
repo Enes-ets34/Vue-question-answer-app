@@ -1,5 +1,7 @@
+import { isObject } from "util";
 import { createRouter, createWebHistory } from "vue-router";
 import Header from "../components/appShared/Header.vue";
+import store from "../store";
 
 const routes = [
   {
@@ -31,8 +33,8 @@ const routes = [
     components: { default: () => import("../views/NewQuestion.vue"), Header }
   },
   {
-    path: "/my-favorites",
-    name: "MyFavorites",
+    path: "/favorites",
+    name: "Favorites",
 
     components: {
       default: () => import("../views/User/MyFavorites.vue"),
@@ -61,4 +63,23 @@ const router = createRouter({
   routes
 });
 
+router.beforeEach((to, from, next) => {
+  let user = null;
+  const authenticatedPages = ["Account", "Favorites", "Profile", "NewQuestion"];
+  if (localStorage?.user) user = JSON.parse(localStorage?.user);
+  if (isObject(user)) {
+    store.commit("users/setUser", user);
+  }
+
+  const isAuth = store.getters["users/isAuth"];
+  if (!isAuth && authenticatedPages.indexOf(to.name) > -1) {
+    next({ name: "Login" });
+    console.log(isAuth);
+  }
+  if (isAuth && to.name === "Login") {
+    next({ name: "Home" });
+  }
+
+  next();
+});
 export default router;

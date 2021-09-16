@@ -286,27 +286,28 @@
   ],
   "users": [
     {
-      "id": 1,
       "name": "Enes Taha Sarı",
-      "bio": "Yazılım Geliştirici",
-      "skills": [
-        "Frontend Development",
-        "Vuejs",
-        "Javascript",
-        "HTML"
-      ]
+      "email": "ets.34.es@gmail.com",
+      "password": "1234",
+      "category": 1,
+      "bio": null,
+      "id": 1
     },
     {
-      "id": 2,
-      "name": "Cengiz c. Mataracı",
-      "bio": "Yazılım Geliştirici",
-      "skills": [
-        "Frontend Development",
-        "Backend Development",
-        "Reactjs",
-        "Javascript",
-        "HTML"
-      ]
+      "name": "Cengiz c. mataraci",
+      "email": "cengiz.c@gmail.com.com",
+      "password": "1234",
+      "categoryId": 5,
+      "bio": null,
+      "id": 2
+    },
+    {
+      "name": "Gökhan Kandemir",
+      "email": "kablosuzkedi@gkandemi.com",
+      "password": "1234",
+      "categoryId": 6,
+      "bio": null,
+      "id": 3
     }
   ]
 }
