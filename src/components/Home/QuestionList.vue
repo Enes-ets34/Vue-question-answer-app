@@ -20,8 +20,14 @@
 import { mapGetters } from "vuex";
 
 import Question from "../../components/Question.vue";
+import { appAxios } from "../../utils/appAxios";
 
 export default {
+  data() {
+    return {
+      questionOwner: null
+    };
+  },
   components: {
     Question
   },
@@ -52,6 +58,5 @@ export default {
 <style>
 img {
   width: 100% !important;
-
 }
 </style>

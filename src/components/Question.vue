@@ -2,15 +2,19 @@
   <div class="card mb-3 shadow">
     <div class="card-header d-flex justify-content-between align-items-center">
       <h4>{{ question.title }}</h4>
-      <h5>
-        <i class="fas fa-heart text-muted"></i>
+      <h5 v-if="isAuth">
+        <i
+          @click="addToFavorites(question)"
+          class="fas fa-heart"
+          :class="{ 'text-warning': isFavorite, 'text-muted': !isFavorite }"
+        ></i>
       </h5>
     </div>
     <div class="card-body">
       <p class="card-text" v-html="question.content"></p>
       <div class="d-flex justify-content-between align-items-center">
         <small class="card-text text-muted">
-          <i class="fas fa-user"></i> Enes Taha Sarı
+          <i class="fas fa-user"></i> {{ question.user.name }}
           {{ timesAgo(question.created_at) }} sordu.
         </small>
 
@@ -45,17 +49,38 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
 import helperMixin from "../utils/helperMixin";
 export default {
   mixins: [helperMixin],
+
   props: {
     question: {
       type: Object,
       required: true
+    },
+    favoriteItem: {
+      type: Boolean,
+      required: false,
+      default: false
     }
   },
-
+  methods: {
+    ...mapActions({
+      addToFavorites: "users/addToFavorites"
+    })
+  },
   computed: {
+    ...mapGetters({
+      isAuth: "users/currentUser",
+      favorites: "users/favorites"
+    }),
+    answerCount() {
+      if (this.question?.answers !== undefined) {
+        const count = this.question.answers?.length || 0;
+        return count > 0 ? `${count} cevap` : "Cevap Yok";
+      }
+    },
     answerDate() {
       if (
         this.question?.answers.length !== 0 ||
@@ -67,14 +92,12 @@ export default {
         return false;
       }
     },
+    isFavorite() {
+      return this.favorites.find(f => f.questionId === this.question.id);
+    },
     showQuestion() {
       return `/question-detail/${this.question.id}`;
-    },
-    answerCount() {
-      const count = this.question?.answers?.length || 0;
-      return count > 0 ? `${count} cevap` : "Cevap Yok";
-    },
-  
+    }
   }
 };
 </script>

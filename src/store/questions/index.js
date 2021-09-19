@@ -13,7 +13,7 @@ export default {
   actions: {
     fetchQuestions({ commit }, { selectedCategories, searchKey }) {
       let url =
-        "/questions?_expand=category&&_sort=created_at&_order=desc&_embed=answers";
+        "/questions?_expand=category&_expand=user&_sort=created_at&_order=desc&_embed=answers";
       if (selectedCategories) {
         const IDs = selectedCategories
           .filter(c => c.selected)
@@ -31,11 +31,16 @@ export default {
         .catch(err => console.error(err));
     },
 
-    saveAnswer({ commit }, answer) {
+    saveAnswer(_, answer) {
       appAxios.post("/answers", answer).then(res => {
-        commit("addAnswer", res.data);
         console.log(res);
       });
+    },
+    deleteAnswer(_, answerId) {
+      appAxios
+        .delete(`/answers/${answerId}`)
+        .then(res => console.log(res))
+        .catch(err => console.error(err));
     }
   },
   getters: {

@@ -72,6 +72,9 @@ router.beforeEach((to, from, next) => {
   }
 
   const isAuth = store.getters["users/isAuth"];
+  if (isAuth) {
+    store.dispatch("users/setFavorites");
+  }
   if (!isAuth && authenticatedPages.indexOf(to.name) > -1) {
     next({ name: "Login" });
     console.log(isAuth);

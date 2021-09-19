@@ -6,16 +6,18 @@
           class="card-header d-flex justify-content-between align-items-center"
         >
           <h4>{{ question.title }}</h4>
-          <a
-            href="#"
-            v-if="!editQuestion"
-            @click="editQuestion = true"
-            class="text-dark"
-            ><i class="fas fa-edit"></i> Düzenle</a
-          >
-          <a href="#" v-else @click="editQuestion = false" class="text-danger"
-            ><i class="fas fa-edit"></i> İptal</a
-          >
+          <div v-if="questionOwner">
+            <a
+              href="#"
+              v-if="!editQuestion"
+              @click="editQuestion = true"
+              class="text-dark"
+              ><i class="fas fa-edit"></i> Düzenle</a
+            >
+            <a href="#" v-else @click="editQuestion = false" class="text-danger"
+              ><i class="fas fa-edit"></i> İptal</a
+            >
+          </div>
         </div>
         <div class="card-body">
           <quill-editor v-if="editQuestion" v-model:value="updatedQuestion">
@@ -30,7 +32,7 @@
               Güncelle
             </button>
             <small class="card-text text-muted">
-              <i class="fas fa-user"></i> Enes Taha Sarı
+              <i class="fas fa-user"></i> {{ question?.user?.name }}
               {{ timesAgo(question.created_at) }} sordu.</small
             >
             <small class="card-text text-muted"
@@ -72,6 +74,7 @@
             v-for="answer in question.answers"
             :key="answer.id"
             :answer="answer"
+            @removeAnswer="removeAnswer(answer)"
           />
 
           <!-- /Answers -->
@@ -99,6 +102,7 @@ export default {
         content: null,
         questionId: Number(this.$route.params.id)
       },
+      user: null,
       updatedQuestion: null,
       editQuestion: false
     };
@@ -106,7 +110,10 @@ export default {
   computed: {
     ...mapGetters({
       currentUser: "users/currentUser"
-    })
+    }),
+    questionOwner() {
+      return this.currentUser?.id === this.question?.user?.id;
+    }
   },
   components: {
     Answer
@@ -114,19 +121,26 @@ export default {
   methods: {
     addAnswer() {
       this.answerLoading = true;
-
+      let answer = {
+        ...this.userData,
+        created_at: new Date(),
+        userId: this.currentUser.id,
+        likes: [],
+        dislikes: []
+      };
       setTimeout(() => {
-        this.$store.dispatch("questions/saveAnswer", {
-          created_at: new Date(),
-          userId: this.currentUser.id,
-          ...this.userData
-        });
-        this.question.answers.unshift({ ...this.userData });
+        this.$store.dispatch("questions/saveAnswer", answer);
+        this.question.answers.unshift({ ...answer });
         this.answerLoading = false;
         this.userData.content = "";
       }, 500);
 
       // this.$router.push({ name: "Home" });
+    },
+    removeAnswer(answer) {
+      this.question.answers = this.question.answers.filter(
+        i => i.id !== answer.id
+      );
     },
     updateQuestion() {
       console.log(this.updatedQuestion);
@@ -141,16 +155,25 @@ export default {
           this.editQuestion = false;
         })
         .catch(err => console.error(err));
+    },
+    fetchAnswers() {
+      appAxios
+        .get(
+          `/answers/?questionId=${this.$route.params.id}&_embed=likes&_embed=dislikes&_sort=created_at&_order=desc&_expand=user`
+        )
+        .then(res => {
+          this.question.answers = res?.data || [];
+        });
     }
   },
   created() {
     appAxios
-      .get(
-        `/questions/${this.$route.params.id}?_expand=category&_embed=answers`
-      )
+      .get(`/questions/${this.$route.params.id}?_expand=category&_expand=user`)
       .then(res => {
         setTimeout(() => {
           this.question = { ...res.data };
+          this.question.answers = [];
+          this.fetchAnswers();
 
           this.isLoaded = true;
         }, 500);
