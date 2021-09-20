@@ -20,7 +20,7 @@
           >
         </li>
         <li class="align-items-center">
-          <router-link to="favorites" class="dropdown-item" href="#"
+          <router-link to="favorites" class="dropdown-item disabled" href="#"
             ><i class="fas fa-star me-1"></i>Favorilerim</router-link
           >
         </li>

@@ -19,7 +19,6 @@ export default {
     addFavorites(state, pFavorite) {
       state.favorites.push(pFavorite);
     },
-
     deleteFavorite(state, favoriteID) {
       state.favorites = state.favorites.filter(f => f.id !== favoriteID);
     }
