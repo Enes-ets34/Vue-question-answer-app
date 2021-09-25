@@ -1,5 +1,7 @@
 import { appAxios } from "../../utils/appAxios";
 import router from "../../router/index";
+import CryptoJS from "crypto-js";
+import store from "../index";
 export default {
   namespaced: true,
   state: {
@@ -25,18 +27,29 @@ export default {
   },
   actions: {
     register({ commit }, pUser) {
+      pUser.password = CryptoJS.HmacSHA1(
+        pUser.password,
+        store.getters._saltKey
+      ).toString();
+      console.log("pUser :>> ", pUser);
       appAxios
         .post("users", pUser)
         .then(res => {
           console.log(res);
           commit("setUser", res?.data);
-          localStorage.user = JSON.stringify(res?.data[0]);
-          dispatch("setFavorites");
+
+          localStorage.user = JSON.stringify(res?.data);
           router.push("/");
+          dispatch("setFavorites");
         })
-        .catch(err => console.error(object));
+        .catch(err => console.error(err));
     },
     login({ commit, dispatch }, pUser) {
+      pUser.password = CryptoJS.HmacSHA1(
+        pUser.password,
+        store.getters._saltKey
+      ).toString();
+
       appAxios
         .get(`/users?email=${pUser.email}&password=${pUser.password}`)
         .then(res => {
@@ -45,6 +58,8 @@ export default {
             localStorage.user = JSON.stringify(res?.data[0]);
             dispatch("setFavorites");
             router.push("/");
+          } else {
+            alert("böyle bir kullanıcı yok");
           }
         })
         .catch(err => console.error(err));
@@ -94,7 +109,11 @@ export default {
     }
   },
   getters: {
-    currentUser: state => state.user,
+    currentUser(state) {
+      const user = state.user;
+      delete user?.password;
+      return user;
+    },
     favorites: state => state.favorites,
     isAuth: state => state.user !== null
   }

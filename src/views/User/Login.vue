@@ -5,6 +5,7 @@
         <h4 v-if="account">Kayıt Ol</h4>
         <h4 v-else>Giriş Yap</h4>
       </div>
+      <!-- REGISTER -->
       <div class="card-body" v-if="account">
         <div class="form-group">
           <div class="mb-3">
@@ -79,6 +80,9 @@
           </div>
         </div>
       </div>
+      <!-- /REGISTER -->
+
+      <!-- LOGIN -->
       <div class="card-body" v-else>
         <div class="form-group">
           <div class="mb-3">
@@ -106,6 +110,7 @@
           </div>
         </div>
       </div>
+      <!-- /LOGIN -->
       <div class="card-footer">
         <small v-if="account"
           ><a @click="account = false" href="#" class="text-primary"
@@ -168,6 +173,9 @@ export default {
           this.userData.email === null || this.userData.email.trim() === ""
         );
       }
+    },
+    userPassword(){
+      
     }
   }
 };

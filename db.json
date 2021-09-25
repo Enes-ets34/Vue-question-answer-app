@@ -140,6 +140,14 @@
       "content": "<p><span style=\"color: rgba(0, 0, 0, 0.9);\">Merhaba Arkadaşlar</span></p><h4><span style=\"color: rgba(0, 0, 0, 0.9); background-color: rgb(255, 255, 204);\">soru değil iş ilanı ama olsundu</span></h4><p><span style=\"color: rgba(0, 0, 0, 0.9);\">&nbsp;</span></p><p><strong style=\"color: rgb(240, 102, 102);\">Kanada</strong><span style=\"color: rgba(0, 0, 0, 0.9);\"> kökenli firmamızda oldukça dinamik bir </span><a href=\"https://www.oracle.com/tr/erp/what-is-erp/\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"color: rgb(230, 0, 0);\"><strong><em>ERP</em></strong></a><span style=\"color: rgba(0, 0, 0, 0.9);\"> geliştiriyoruz. Onunla beraber ERP ile entegre olarak çalışacak / çalışmayacak birbirinden farklı bir çok projemiz de var.</span></p><p><span style=\"color: rgba(0, 0, 0, 0.9);\">&nbsp;</span></p><h3><span style=\"color: rgba(0, 0, 0, 0.9);\">REMOTE Olarak çalışacak ekip arkadaşları arıyoruz :)</span></h3><h3><span style=\"color: rgba(0, 0, 0, 0.9);\">&nbsp;</span></h3><p><span style=\"color: rgba(0, 0, 0, 0.9);\">FRONTEND DEVELOPER</span></p><p><span style=\"color: rgba(0, 0, 0, 0.9);\">Mid Level - Senior Vue.js Developer</span></p>",
       "categoryId": 1,
       "id": 19
+    },
+    {
+      "created_at": "2021-09-25T09:32:58.913Z",
+      "userId": 1,
+      "title": "composition Api",
+      "content": "<p><strong class=\"ql-font-serif\"><em>dostlar elinde composition api ile ilgili video olan var mı?</em></strong></p>",
+      "categoryId": 1,
+      "id": 20
     }
   ],
   "answers": [
@@ -310,13 +318,22 @@
       "created_at": "2021-09-19T09:18:28.291Z",
       "userId": 2,
       "id": 29
+    },
+    {
+      "content": "<h2>karşim ayıpsın ! :)</h2><p><a href=\"https://www.youtube.com/c/kablosuzkedii\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"color: rgb(255, 194, 102); background-color: rgb(0, 0, 0);\">youtube kanalımda</a> bununla ilgili bootcampimiz var tavsiye ederim :)</p><p><u>ayrıca telegram grubumuzada </u><a href=\"https://t.me/joinchat/pqiJOgi8byQ5Y2E0\" rel=\"noopener noreferrer\" target=\"_blank\"><u>buradan</u></a><u> katılabilirsin :)</u></p>",
+      "questionId": 20,
+      "created_at": "2021-09-25T09:34:53.388Z",
+      "userId": 3,
+      "likes": [],
+      "dislikes": [],
+      "id": 30
     }
   ],
   "users": [
     {
       "name": "Enes Taha Sarı",
       "email": "ets.34.es@gmail.com",
-      "password": "1234",
+      "password": "2ec57c8d873e1765ac0c37ef8fcebb858cd62c4e",
       "categoryId": 1,
       "bio": "<h1><span style=\"color: rgb(102, 163, 224);\">deneme</span></h1><p>merhaba ben enes twit at bize</p>",
       "id": 1
@@ -324,7 +341,7 @@
     {
       "name": "Cengiz c. mataraci",
       "email": "cengiz.c@gmail.com",
-      "password": "1234",
+      "password": "2ec57c8d873e1765ac0c37ef8fcebb858cd62c4e",
       "categoryId": 5,
       "bio": null,
       "id": 2
@@ -332,10 +349,18 @@
     {
       "name": "Gökhan Kandemir",
       "email": "kablosuzkedi@gkandemi.com",
-      "password": "1234",
+      "password": "2ec57c8d873e1765ac0c37ef8fcebb858cd62c4e",
       "categoryId": 6,
       "bio": null,
       "id": 3
+    },
+    {
+      "name": "Mehmet Sezer",
+      "email": "h.mehmet@sezer.com",
+      "password": "2ec57c8d873e1765ac0c37ef8fcebb858cd62c4e",
+      "categoryId": 7,
+      "bio": null,
+      "id": 4
     }
   ],
   "favorites": [
@@ -429,6 +454,20 @@
       "answerId": 10,
       "userId": 1,
       "id": 7
+    },
+    {
+      "userId": 3,
+      "id": 8
+    },
+    {
+      "answerId": 30,
+      "userId": 3,
+      "id": 9
+    },
+    {
+      "answerId": 30,
+      "userId": 1,
+      "id": 10
     }
   ],
   "dislikes": [

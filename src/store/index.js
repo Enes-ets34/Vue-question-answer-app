@@ -5,12 +5,17 @@ import users from "./users";
 import likes from "./likes";
 
 export default createStore({
-  state: {},
+  state: {
+    saltKey: "booklike123!456?"
+  },
   mutations: {},
   actions: {
     initApp({ dispatch }) {
       dispatch("categories/fetchCategories");
     }
+  },
+  getters: {
+    _saltKey: state => state.saltKey
   },
   modules: {
     categories,

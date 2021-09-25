@@ -29,7 +29,7 @@
         <div>
           <i class="fa fa-hashtag me-2" :class="{ [textColor(index)]: true }">
           </i>
-          {{ category.title }}
+          {{ category.title }} - {{ categoryCount }}
         </div>
 
         <i v-if="category.selected" class=" fas fa-check"></i>
@@ -69,8 +69,10 @@ export default {
   computed: {
     ...mapGetters({
       categories: "categories/getCategories",
-      selectedCategories: "categories/getSelectedCategories"
-    })
+      selectedCategories: "categories/getSelectedCategories",
+      questions: "questions/getQuestions"
+    }),
+    categoryCount() {}
   },
   watch: {
     categories: {

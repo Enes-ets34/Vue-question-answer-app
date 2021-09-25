@@ -1,4 +1,4 @@
-import { isObject } from "util";
+import {isObject} from "util";
 import { createRouter, createWebHistory } from "vue-router";
 import Header from "../components/appShared/Header.vue";
 import store from "../store";
@@ -66,7 +66,9 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
   let user = null;
   const authenticatedPages = ["Account", "Favorites", "Profile", "NewQuestion"];
-  if (localStorage?.user) user = JSON.parse(localStorage?.user);
+  if (localStorage?.user) {
+    user = JSON.parse(localStorage?.user);
+  }
   if (isObject(user)) {
     store.commit("users/setUser", user);
   }
