@@ -1,4 +1,4 @@
-import {isObject} from "util";
+import { isObject } from "util";
 import { createRouter, createWebHistory } from "vue-router";
 import Header from "../components/appShared/Header.vue";
 import store from "../store";
@@ -80,6 +80,7 @@ router.beforeEach((to, from, next) => {
   if (!isAuth && authenticatedPages.indexOf(to.name) > -1) {
     next({ name: "Login" });
     console.log(isAuth);
+    console.log(store.getters._saltKey);
   }
   if (isAuth && to.name === "Login") {
     next({ name: "Home" });

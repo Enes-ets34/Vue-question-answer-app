@@ -29,12 +29,12 @@
         <div>
           <i class="fa fa-hashtag me-2" :class="{ [textColor(index)]: true }">
           </i>
-          {{ category.title }} - {{ categoryCount }}
+          {{ category.title }}
         </div>
-
         <i v-if="category.selected" class=" fas fa-check"></i>
       </a>
     </div>
+    {{ categoryCount }}
   </div>
 </template>
 
@@ -56,7 +56,9 @@ export default {
       ]
     };
   },
-  created() {},
+  created() {
+    console.log(this.categoryCount);
+  },
   methods: {
     textColor(index) {
       return this.colors[index % this.colors.length];
@@ -72,7 +74,16 @@ export default {
       selectedCategories: "categories/getSelectedCategories",
       questions: "questions/getQuestions"
     }),
-    categoryCount() {}
+    categoryCount() {
+      let filteredQuestions = this.questions.map(i => {
+        return i.categoryId;
+      });
+      return (filteredQuestions = filteredQuestions.reduce((sum, item) => {
+        sum[item] = sum[item] ? sum[item] + 1 : 1;
+
+        return sum;
+      }, {}));
+    }
   },
   watch: {
     categories: {
