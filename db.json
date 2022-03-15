@@ -145,9 +145,10 @@
       "created_at": "2021-09-25T09:32:58.913Z",
       "userId": 1,
       "title": "composition Api",
-      "content": "<p><strong class=\"ql-font-serif\"><em>dostlar elinde composition api ile ilgili video olan var mı?</em></strong></p>",
+      "content": "<h2><strong>dostlar elinde composition api ile ilgili video olan var mı?</strong></h2>",
       "categoryId": 1,
-      "id": 20
+      "id": 20,
+      "updated_at": "2021-10-23T14:00:54.659Z"
     }
   ],
   "answers": [
@@ -327,6 +328,15 @@
       "likes": [],
       "dislikes": [],
       "id": 30
+    },
+    {
+      "content": "<p>deneme</p>",
+      "questionId": 20,
+      "created_at": "2021-10-23T13:59:49.228Z",
+      "userId": 1,
+      "likes": [],
+      "dislikes": [],
+      "id": 31
     }
   ],
   "users": [
@@ -413,10 +423,16 @@
       "id": 9
     },
     {
-      "questionId": 19,
-      "created_at": "2021-09-19T13:15:38.509Z",
+      "questionId": 12,
+      "created_at": "2021-10-23T14:01:00.834Z",
       "userId": 1,
-      "id": 10
+      "id": 11
+    },
+    {
+      "questionId": 10,
+      "created_at": "2021-10-23T14:01:01.351Z",
+      "userId": 1,
+      "id": 12
     }
   ],
   "likes": [
@@ -468,6 +484,11 @@
       "answerId": 30,
       "userId": 1,
       "id": 10
+    },
+    {
+      "answerId": 31,
+      "userId": 1,
+      "id": 11
     }
   ],
   "dislikes": [
@@ -505,6 +526,11 @@
       "answerId": 29,
       "userId": 1,
       "id": 7
+    },
+    {
+      "answerId": 31,
+      "userId": 1,
+      "id": 8
     }
   ]
 }

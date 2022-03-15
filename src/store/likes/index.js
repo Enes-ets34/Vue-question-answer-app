@@ -9,7 +9,7 @@ export default {
       appAxios.post("/likes", pLike).then(res => console.log(res));
     },
     dislike(_, pDislike) {
-      appAxios.post("/dislikes", pDislike);
+      appAxios.post("/dislikes", pDislike);  
     }
   },
   getters: {}

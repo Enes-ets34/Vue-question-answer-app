@@ -31,10 +31,10 @@
           </i>
           {{ category.title }}
         </div>
-        <i v-if="category.selected" class=" fas fa-check"></i>
+        <!-- <i v-if="category.selected" class=" fas fa-check"></i> -->
       </a>
     </div>
-    {{ categoryCount }}
+    <!-- {{ categoryCount }} -->
   </div>
 </template>
 
