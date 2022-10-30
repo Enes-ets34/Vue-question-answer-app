@@ -19,6 +19,33 @@ npm run build
 ```
 json-server --watch db.json
 ```
+### Teknolojiler ve bağımlılıklar:
+- HTML5
+- CSS3
+- Bootstrap5
+- Fourth item
+- Javascript
+    - Moment.js
+    - Cyrpto.js
+    - JSON
+    - Axios
+- Vue 3
+    - Vue CLI
+    - Vuex
+    - Vue router
+- Quill editor.
 
+### Özellikler
+- Authorization
+- Validation
+- Routing
+- Reactivity
+- Alert Messages
+- Login/Register
+- Encyrpt passwords
+- Filter by Categories
+- Search
+- Relationship
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
