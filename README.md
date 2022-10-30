@@ -45,6 +45,7 @@ json-server --watch db.json
 - Encyrpt passwords
 - Filter by Categories
 - Search
+- Like/Save content
 - Relationship
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
