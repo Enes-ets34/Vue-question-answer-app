@@ -23,7 +23,6 @@ json-server --watch db.json
 - HTML5
 - CSS3
 - Bootstrap5
-- Fourth item
 - Javascript
     - Moment.js
     - Cyrpto.js
