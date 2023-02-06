@@ -30,8 +30,10 @@ json-server --watch db.json
     - Axios
 - Vue 3
     - Vue CLI
+    - Components
     - Vuex
     - Vue router
+    - Components Slots
 - Quill editor.
 
 ### Özellikler

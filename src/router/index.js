@@ -1,91 +1,81 @@
-import { isObject } from "util";
 import { createRouter, createWebHistory } from "vue-router";
-import Header from "../components/appShared/Header.vue";
-import store from "../store";
+import store from "../store/index";
+import Home from "../views/Home.vue";
 
 const routes = [
   {
     path: "/",
     name: "Home",
-    // component: Home,
-    components: {
-      default: () => import("../views/Home.vue"),
-      Header
-    }
+    component: Home,
   },
-
+  {
+    path: "/new-question",
+    name: "NewQuestion",
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+      import(
+        /* webpackChunkName: "about" */ "../views/Question/NewQuestion.vue"
+      ),
+  },
   {
     path: "/question-detail/:id",
     name: "QuestionDetail",
-
-    components: { default: () => import("../views/QuestionDetail.vue"), Header }
+    component: () => import("../views/Question/QuestionDetail.vue"),
   },
   {
     path: "/login",
     name: "Login",
-
-    component: () => import("../views/User/Login.vue")
+    component: () => import("../views/Login.vue"),
   },
   {
-    path: "/new",
-    name: "NewQuestion",
-
-    components: { default: () => import("../views/NewQuestion.vue"), Header }
+    path: "/register",
+    name: "Register",
+    component: () => import("../views/Register.vue"),
   },
   {
     path: "/favorites",
     name: "Favorites",
-
-    components: {
-      default: () => import("../views/User/MyFavorites.vue"),
-      Header
-    }
+    component: () => import("../views/Authenticated/Favorites.vue"),
   },
   {
     path: "/profile",
     name: "Profile",
-
-    components: { default: () => import("../views/User/Profile.vue"), Header }
+    component: () => import("../views/Authenticated/Profile.vue"),
   },
   {
     path: "/my-questions",
     name: "MyQuestions",
-
-    components: {
-      default: () => import("../views/User/MyQuestions.vue"),
-      Header
-    }
-  }
+    component: () => import("../views/Authenticated/MyQuestions.vue"),
+  },
 ];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes
+  routes,
+  scrollBehavior(to, from, savedPosition) {
+    return { top: 0 };
+  },
 });
 
 router.beforeEach((to, from, next) => {
   let user = null;
-  const authenticatedPages = ["Account", "Favorites", "Profile", "NewQuestion"];
-  if (localStorage?.user) {
-    user = JSON.parse(localStorage?.user);
-  }
-  if (isObject(user)) {
-    store.commit("users/setUser", user);
-  }
+  let authenticatedPages = [
+    "Profile",
+    "Favorites",
+    "MyQuestions",
+    "NewQuestion",
+  ];
+  if (localStorage?.user) user = JSON.parse(localStorage?.user);
+  store.commit("users/setCurrentUser", user);
+  const isAuthenticated = store.getters["users/isAuthenticated"];
+  console.log("isAuthenticated :>> ", isAuthenticated, user);
 
-  const isAuth = store.getters["users/isAuth"];
-  if (isAuth) {
-    store.dispatch("users/setFavorites");
-  }
-  if (!isAuth && authenticatedPages.indexOf(to.name) > -1) {
-    next({ name: "Login" });
-    console.log(isAuth);
-    console.log(store.getters._saltKey);
-  }
-  if (isAuth && to.name === "Login") {
+  if (isAuthenticated && (to.name === "Login" || to.name === "Register"))
     next({ name: "Home" });
-  }
-
+  if (!isAuthenticated && authenticatedPages.indexOf(to.name) > -1)
+    next({ name: "Login" });
   next();
 });
 export default router;

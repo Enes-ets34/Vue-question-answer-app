@@ -1,38 +1,36 @@
 <template>
-  <div class="home">
-    <div class="container mt-5">
-      <div class="row">
-        <div class="col-md-3 ">
-          <categories></categories>
-        </div>
-        <div class="col-md-8">
+  <appNavbar />
+  <div class="row">
 
-            <QuestionList  />
+    <Categories @select-category="selectedCategories" />
 
-        </div>
-      </div>
-    </div>
+
+    <QuestionList :questionList="questionList" />
   </div>
 </template>
-
 <script>
-import Categories from "../components/Home/Categories.vue";
-import QuestionList from "../components/Home/QuestionList.vue";
 
-// @ is an alias to /src
+import Categories from "../components/Categories.vue";
+import QuestionList from "../components/Question/QuestionList.vue";
+import { mapGetters } from "vuex";
+
 
 export default {
-  name: "Home",
-  components: {
-    Categories,
-    QuestionList
+  components: { Categories, QuestionList },
+  created() {
+    this.$store.dispatch("questions/fetchQuestions", this.$store.getters["categories/getSelectedCategories"]);
   },
 
-  data() {
-    return {};
-  }
+  computed: {
+    ...mapGetters({
+      questionList: "questions/getQuestions",
+    }),
+  },
+  methods: {
+    selectedCategories(e) {
+      this.$store.dispatch("questions/fetchQuestions", { categories: e });
+    },
+
+  },
 };
 </script>
-<style>
-
-</style>

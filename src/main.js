@@ -2,15 +2,17 @@ import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
-import "@/assets/style.css";
-import Header from "./components/appShared/Header.vue";
-import appLoading from "./components/Loading.vue";
 
-import { quillEditor } from "vue3-quill";
+import "@vueup/vue-quill/dist/vue-quill.snow.css";
+import { QuillEditor } from "@vueup/vue-quill";
+
+import appNavbar from "../src/components/appShared/Navbar.vue";
+import appAlert from "../src/components/appShared/Alert.vue";
+
 createApp(App)
   .use(store)
+  .component("appNavbar", appNavbar)
+  .component("QuillEditor", QuillEditor)
+  .component("appAlert", appAlert)
   .use(router)
-  .use(quillEditor)
-  .component("Header", Header)
-  .component("appLoading", appLoading)
   .mount("#app");

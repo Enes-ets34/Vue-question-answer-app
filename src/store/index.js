@@ -1,26 +1,22 @@
 import { createStore } from "vuex";
-import categories from "./categories";
-import questions from "./questions";
-import users from "./users";
-import likes from "./likes";
+
+import categories from "./modules/categories";
+import questions from "./modules/questions";
+import users from "./modules/users";
 
 export default createStore({
+  namespaced: true,
   state: {
-    saltKey: "booklike123!456?"
+    saltKey: "hashedBitch",
   },
   mutations: {},
-  actions: {
-    initApp({ dispatch }) {
-      dispatch("categories/fetchCategories");
-    }
-  },
+  actions: {},
   getters: {
-    _saltKey: state => state.saltKey
+    _saltKey: (state) => state.saltKey,
   },
   modules: {
     categories,
     questions,
     users,
-    likes
-  }
+  },
 });

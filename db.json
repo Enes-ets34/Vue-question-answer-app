@@ -1,547 +1,337 @@
 {
-  "categories": [
-    {
-      "title": "Vue.js",
-      "id": 1
-    },
-    {
-      "title": "React.js",
-      "id": 2
-    },
-    {
-      "title": "Angular.js",
-      "id": 3
-    },
-    {
-      "title": "Frontend Geliştirme",
-      "id": 4
-    },
-    {
-      "title": "Backend Geliştirme",
-      "id": 5
-    },
-    {
-      "title": "Dev0ps",
-      "id": 6
-    },
-    {
-      "title": "Java",
-      "id": 7
-    },
-    {
-      "title": "Mobil Geliştirme",
-      "id": 8
-    }
-  ],
   "questions": [
     {
-      "created_at": "2021-09-07T17:38:08.025Z",
-      "title": "Vue.js",
-      "content": "Vue js sorunum var .",
-      "categoryId": 1,
-      "id": 2,
+      "title": "Composition api",
+      "details": "Merhaba deneme",
+      "categoryId": 2,
+      "id": 1,
+      "created_at": "2022-12-03T18:36:30.021Z",
       "userId": 1
     },
     {
-      "created_at": "2021-09-07T18:09:08.256Z",
-      "title": "Dev0ps",
-      "content": "Dev0ps tanıdığınız var mı ?",
-      "categoryId": 6,
-      "id": 4,
-      "userId": 2
+      "title": "Docker",
+      "details": "Docker ile ilgili kaynak?",
+      "categoryId": 4,
+      "id": 3,
+      "created_at": "2022-10-03T18:36:30.021Z",
+      "userId": 1
     },
     {
-      "created_at": "2021-09-08T12:03:10.548Z",
-      "title": "angular mı react mı?",
-      "content": "yoksa vue mu?",
+      "title": "Javascript Promise yaklaşımı",
+      "details": "Promiste zorlanıyorum?",
+      "categoryId": 5,
+      "id": 4,
+      "created_at": "2022-11-14T18:36:30.021Z",
+      "userId": 1
+    },
+    {
+      "title": "başlık merhaba",
+      "details": "örnek soru",
+      "categoryId": 2,
+      "id": 5,
+      "created_at": "2022-10-05T18:36:30.021Z",
+      "userId": 1
+    },
+    {
+      "title": "Redis",
+      "details": "redis ile ilgili kaynak önerebilecek var mıı??",
       "categoryId": 3,
+      "created_at": "2020-12-04T18:36:30.021Z",
+      "id": 6,
+      "userId": 1
+    },
+    {
+      "title": "AWS Faturalandırma",
+      "details": "merhaba yardımmmm !!!!",
+      "categoryId": 4,
+      "created_at": "2022-12-04T20:09:34.247Z",
+      "id": 7,
+      "userId": 1
+    },
+    {
+      "title": "Docker",
+      "details": "docker ile ilgili kaynak var mı =)",
+      "categoryId": 3,
+      "created_at": "2022-12-05T19:23:16.197Z",
       "id": 8,
       "userId": 2
     },
     {
-      "created_at": "2021-09-08T12:03:48.405Z",
-      "title": "En iyi backend teknolojisi hangisi?",
-      "content": "<p>java diyorlar ama bilemiyorum....</p>",
+      "title": "vanilla js",
+      "details": "<h1 class=\"ql-align-center\"><span style=\"background-color: rgb(61, 20, 102); color: rgb(255, 255, 255);\">sizce nasıl???</span></h1>",
       "categoryId": 5,
-      "id": 9,
-      "userId": 2,
-      "updated_at": "2021-09-19T09:27:34.650Z"
-    },
-    {
-      "created_at": "2021-09-12T08:53:09.069Z",
-      "title": "Kotlin",
-      "content": "sizce Kotlin mi flutter mı ?",
-      "categoryId": 8,
+      "created_at": "2022-12-10T16:41:10.001Z",
       "id": 10,
+      "userId": 2,
+      "category": {
+        "title": "Javascript",
+        "id": 5
+      },
+      "answers": [
+        {
+          "details": "Merhaba! ikinci deneme",
+          "questionId": 10,
+          "created_at": "2022-12-16T19:14:31.624Z",
+          "id": 7
+        },
+        {
+          "details": "Merhaba! deneme\n",
+          "questionId": 10,
+          "created_at": "2022-12-16T19:13:31.208Z",
+          "id": 6
+        }
+      ]
+    },
+    {
+      "title": ".Net in Türkiye pazarındaki yeri",
+      "details": "<p><span class=\"ql-size-large\">Arkadaşlar merhaba!</span></p><p class=\"ql-align-center\">İnatla <span style=\"color: rgb(153, 51, 255);\">.</span><span style=\"color: rgb(153, 51, 255); background-color: rgb(187, 187, 187);\">Net</span> <span style=\"color: rgb(0, 97, 0);\">öğrenmemekteyim</span> <span style=\"color: rgb(0, 102, 204);\">(:</span></p>",
+      "categoryId": "6",
+      "created_at": "2022-12-19T17:09:18.705Z",
+      "id": 11,
+      "answers": [
+        {
+          "details": "<p>asdf</p>",
+          "questionId": 11,
+          "created_at": "2022-12-19T18:27:46.304Z",
+          "id": 17
+        },
+        {
+          "details": "<p>fff</p>",
+          "questionId": 11,
+          "created_at": "2022-12-19T18:27:30.138Z",
+          "id": 16
+        },
+        {
+          "details": "<p>  mm</p>",
+          "questionId": 11,
+          "created_at": "2022-12-19T18:27:02.104Z",
+          "id": 15
+        },
+        {
+          "details": "<p>ddd</p>",
+          "questionId": 11,
+          "created_at": "2022-12-19T18:26:17.353Z",
+          "id": 14
+        },
+        {
+          "details": "<p><span class=\"ql-font-monospace\" style=\"background-color: rgb(92, 0, 0); color: rgb(255, 255, 255);\">deeneme 2</span></p>",
+          "questionId": 11,
+          "created_at": "2022-12-19T18:12:55.932Z",
+          "id": 12
+        },
+        {
+          "details": "<h1><span class=\"ql-font-serif\">deneme</span></h1>",
+          "questionId": 11,
+          "created_at": "2022-12-19T18:12:36.516Z",
+          "id": 11
+        },
+        {
+          "details": "<h1><span style=\"background-color: rgb(161, 0, 0);\">mmmm</span></h1>",
+          "questionId": 11,
+          "created_at": "2022-12-19T18:12:05.648Z",
+          "id": 10
+        },
+        {
+          "details": "<p><span class=\"ql-font-serif ql-size-huge\">aynenn öylee</span></p>",
+          "questionId": 11,
+          "created_at": "2022-12-19T18:11:02.899Z",
+          "id": 9
+        },
+        {
+          "details": "<h1><span style=\"color: rgb(178, 107, 0);\">boşver!</span></h1><p><span style=\"background-color: rgb(0, 55, 0); color: rgb(255, 255, 255);\">Java veya ruby gibi güçlü platformlar&amp;diller var</span></p>",
+          "questionId": 11,
+          "created_at": "2022-12-19T18:09:46.698Z",
+          "id": 8
+        }
+      ],
       "userId": 1
     },
     {
-      "created_at": "2021-09-12T14:06:20.407Z",
-      "title": "React ın popülerliği",
-      "content": "dostlar bu react çok popüler sektörde nedenkine ?",
-      "categoryId": 2,
-      "id": 12,
-      "userId": 1
-    },
-    {
-      "created_at": "2021-09-12T14:48:13.691Z",
-      "title": "React Native?",
-      "content": "sizce react native mi yoksa ionic ile vue veya angular mı?",
-      "categoryId": 8,
-      "id": 13,
-      "userId": 1
-    },
-    {
-      "created_at": "2021-09-13T07:09:26.417Z",
-      "title": "Svelte?",
-      "content": "svelte nasıl sizce dostlar",
+      "title": "deneme sorusu",
+      "details": "<h1><span style=\"color: rgb(178, 107, 0);\">selam arkadaslar (:</span></h1>",
       "categoryId": 4,
-      "id": 14,
-      "userId": 1
-    },
-    {
-      "created_at": "2021-09-13T07:09:59.777Z",
-      "title": "iPhone için napmalıyım?",
-      "content": "mobil geliştirme tabii ki ama sizce swift mi yoksa react native mi?",
-      "categoryId": 8,
-      "id": 15,
-      "userId": 1
-    },
-    {
-      "created_at": "2021-09-14T11:16:29.278Z",
-      "title": "Projede filtreleme yapamıyorum.",
-      "content": "<p>dostlar servisten cevap doğru geliyor ancak <span style=\"color: rgb(230, 0, 0);\">componentte </span>patlıyor bunun sebebi nedir?</p><p><br></p><p>edit: Fotiyi kaldırdım dbde çok uzun gözüküyordu bağlantısı.</p>",
-      "categoryId": 1,
+      "created_at": "2022-12-25T18:29:02.438Z",
+      "id": 12,
       "userId": 1,
-      "id": 16,
-      "updated_at": "2021-09-18T11:52:11.827Z"
+      "category": {
+        "title": "AWS",
+        "id": 4
+      },
+      "answers": []
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "title": "React.js"
     },
     {
-      "created_at": "2021-09-15T09:05:46.156Z",
-      "title": "Regex",
-      "content": "<p>Regex ile ilgili kimse soru paylaşmamış bende soru değilde bir kaynak paylaşayım bari :D</p><iframe class=\"ql-video\" frameborder=\"0\" allowfullscreen=\"true\" src=\"https://www.youtube.com/embed/bF_zEzFQZuA?showinfo=0\"></iframe><p><br></p>",
-      "categoryId": 5,
-      "userId": 3,
-      "id": 17
+      "id": 2,
+      "title": "Vue.js"
     },
     {
-      "created_at": "2021-09-16T18:07:50.005Z",
-      "userId": 1,
-      "title": "Heroku",
-      "content": "<p><span class=\"ql-size-large\">Dostlar her0ku ile ilgili bi kaynak önerebilecek var mı? Gokhan hocanın vardı sanki.</span></p>",
-      "categoryId": 5,
-      "id": 18,
-      "updated_at": "2021-09-16T18:37:39.805Z"
+      "title": "Dev0ps",
+      "id": 3
     },
     {
-      "created_at": "2021-09-18T11:47:47.600Z",
-      "userId": 3,
-      "title": "İş ilanıdır.",
-      "content": "<p><span style=\"color: rgba(0, 0, 0, 0.9);\">Merhaba Arkadaşlar</span></p><h4><span style=\"color: rgba(0, 0, 0, 0.9); background-color: rgb(255, 255, 204);\">soru değil iş ilanı ama olsundu</span></h4><p><span style=\"color: rgba(0, 0, 0, 0.9);\">&nbsp;</span></p><p><strong style=\"color: rgb(240, 102, 102);\">Kanada</strong><span style=\"color: rgba(0, 0, 0, 0.9);\"> kökenli firmamızda oldukça dinamik bir </span><a href=\"https://www.oracle.com/tr/erp/what-is-erp/\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"color: rgb(230, 0, 0);\"><strong><em>ERP</em></strong></a><span style=\"color: rgba(0, 0, 0, 0.9);\"> geliştiriyoruz. Onunla beraber ERP ile entegre olarak çalışacak / çalışmayacak birbirinden farklı bir çok projemiz de var.</span></p><p><span style=\"color: rgba(0, 0, 0, 0.9);\">&nbsp;</span></p><h3><span style=\"color: rgba(0, 0, 0, 0.9);\">REMOTE Olarak çalışacak ekip arkadaşları arıyoruz :)</span></h3><h3><span style=\"color: rgba(0, 0, 0, 0.9);\">&nbsp;</span></h3><p><span style=\"color: rgba(0, 0, 0, 0.9);\">FRONTEND DEVELOPER</span></p><p><span style=\"color: rgba(0, 0, 0, 0.9);\">Mid Level - Senior Vue.js Developer</span></p>",
-      "categoryId": 1,
-      "id": 19
+      "title": "AWS",
+      "id": 4
     },
     {
-      "created_at": "2021-09-25T09:32:58.913Z",
-      "userId": 1,
-      "title": "composition Api",
-      "content": "<h2><strong>dostlar elinde composition api ile ilgili video olan var mı?</strong></h2>",
-      "categoryId": 1,
-      "id": 20,
-      "updated_at": "2021-10-23T14:00:54.659Z"
+      "title": "Javascript",
+      "id": 5
+    },
+    {
+      "title": ".Net",
+      "id": 6
     }
   ],
   "answers": [
     {
+      "id": 1,
+      "details": "Merhaba deneme yorumu",
+      "created_at": "2022-12-10T16:41:10.001Z",
+      "questionId": 1,
+      "userId": 1
+    },
+    {
       "id": 2,
-      "content": "Yok be olum ruby falan var ama javada kıyak yani.",
-      "userId": 3,
-      "questionId": 9,
-      "created_at": "2021-09-10T17:38:08.025Z"
+      "details": "haklısın",
+      "created_at": "2022-12-05T16:41:10.001Z",
+      "questionId": 1,
+      "userId": 1
     },
     {
-      "created_at": "2021-09-12T12:18:27.750Z",
-      "content": "Bence flutter daha iyi ama sen bilirsin.",
+      "id": 3,
+      "details": "dogrudur kanka",
+      "created_at": "2022-09-10T16:41:10.001Z",
+      "questionId": 1,
+      "userId": 1
+    },
+    {
+      "id": 4,
+      "details": "Merhaba bilmem ki",
+      "created_at": "2022-12-03T16:41:10.001Z",
+      "questionId": 3,
+      "userId": 1
+    },
+    {
+      "id": 5,
+      "details": "Merhaba ",
+      "created_at": "2022-12-10T16:41:10.001Z",
+      "questionId": 4,
+      "userId": 1
+    },
+    {
+      "details": "Merhaba! deneme\n",
       "questionId": 10,
-      "userId": 1,
-      "id": 6
+      "created_at": "2022-12-16T19:13:31.208Z",
+      "id": 6,
+      "userId": 1
     },
     {
-      "created_at": "2021-09-12T13:48:36.819Z",
-      "content": "vue babacan",
-      "questionId": 8,
-      "userId": 3,
-      "id": 7
+      "details": "Merhaba! ikinci deneme",
+      "questionId": 10,
+      "created_at": "2022-12-16T19:14:31.624Z",
+      "id": 7,
+      "userId": 1
     },
     {
-      "created_at": "2021-09-12T14:02:24.933Z",
-      "content": "Gökhan kandemir var kendisi makina gibi maşAllah...",
-      "questionId": 4,
-      "userId": 1,
-      "id": 8
+      "details": "<h1><span style=\"color: rgb(178, 107, 0);\">boşver!</span></h1><p><span style=\"background-color: rgb(0, 55, 0); color: rgb(255, 255, 255);\">Java veya ruby gibi güçlü platformlar&amp;diller var</span></p>",
+      "questionId": 11,
+      "created_at": "2022-12-19T18:09:46.698Z",
+      "id": 8,
+      "userId": 1
     },
     {
-      "created_at": "2021-09-12T14:05:42.506Z",
-      "content": "kanka sorunun ne oldugunu yazarsan yardımcı olmaya çalışırız.",
-      "questionId": 2,
-      "userId": 2,
-      "id": 10
+      "details": "<p><span class=\"ql-font-serif ql-size-huge\">aynenn öylee</span></p>",
+      "questionId": 11,
+      "created_at": "2022-12-19T18:11:02.899Z",
+      "id": 9,
+      "userId": 1
     },
     {
-      "created_at": "2021-09-12T14:11:10.484Z",
-      "content": "onu bunu anlamam ben vue cuyum arkadaş",
+      "details": "<h1><span style=\"background-color: rgb(161, 0, 0);\">mmmm</span></h1>",
+      "questionId": 11,
+      "created_at": "2022-12-19T18:12:05.648Z",
+      "id": 10,
+      "userId": 1
+    },
+    {
+      "details": "<h1><span class=\"ql-font-serif\">deneme</span></h1>",
+      "questionId": 11,
+      "created_at": "2022-12-19T18:12:36.516Z",
+      "id": 11,
+      "userId": 1
+    },
+    {
+      "details": "<p><span class=\"ql-font-monospace\" style=\"background-color: rgb(92, 0, 0); color: rgb(255, 255, 255);\">deeneme 2</span></p>",
+      "questionId": 11,
+      "created_at": "2022-12-19T18:12:55.932Z",
+      "id": 12,
+      "userId": 1
+    },
+    {
+      "details": "<h1 class=\"ql-indent-1\"><span style=\"color: rgb(102, 163, 224);\">tmm</span></h1>",
+      "questionId": 5,
+      "created_at": "2022-12-19T18:19:45.886Z",
+      "id": 13,
+      "userId": 1
+    },
+    {
+      "details": "<p>ddd</p>",
+      "questionId": 11,
+      "created_at": "2022-12-19T18:26:17.353Z",
+      "id": 14,
+      "userId": 1
+    },
+    {
+      "details": "<p>  mm</p>",
+      "questionId": 11,
+      "created_at": "2022-12-19T18:27:02.104Z",
+      "id": 15,
+      "userId": 1
+    },
+    {
+      "details": "<p>fff</p>",
+      "questionId": 11,
+      "created_at": "2022-12-19T18:27:30.138Z",
+      "id": 16,
+      "userId": 1
+    },
+    {
+      "details": "<p>asdf</p>",
+      "questionId": 11,
+      "created_at": "2022-12-19T18:27:46.304Z",
+      "id": 17,
+      "userId": 1
+    },
+    {
+      "details": "<p><span class=\"ql-font-monospace\" style=\"background-color: rgb(255, 194, 102);\">selammm</span></p>",
       "questionId": 12,
-      "userId": 1,
-      "id": 11
+      "created_at": "2022-12-25T20:25:46.724Z",
+      "id": 18,
+      "userId": 1
     },
     {
-      "created_at": "2021-09-12T14:17:46.460Z",
-      "content": "Kanka ne bilelim",
-      "questionId": 9,
-      "userId": 1,
-      "id": 12
-    },
-    {
-      "created_at": "2021-09-13T07:10:09.839Z",
-      "content": "ionic ile vue hülooooğğ",
-      "questionId": 15,
-      "userId": 1,
-      "id": 13
-    },
-    {
-      "created_at": "2021-09-13T10:08:12.297Z",
-      "content": "swift daha iyi be sanki kanki.",
-      "questionId": 15,
-      "userId": 1,
-      "id": 14
-    },
-    {
-      "created_at": "2021-09-13T10:08:49.005Z",
-      "content": "git araştır be gelip burda sorma hayvan herif.",
-      "questionId": 15,
-      "userId": 1,
-      "id": 15
-    },
-    {
-      "created_at": "2021-09-13T10:12:03.064Z",
-      "content": "biz ne bilek oglim.",
-      "questionId": 15,
-      "userId": 1,
-      "id": 16
-    },
-    {
-      "created_at": "2021-09-13T10:13:18.948Z",
-      "content": "vue candır kanki boşver",
-      "questionId": 14,
-      "userId": 1,
-      "id": 17
-    },
-    {
-      "created_at": "2021-09-13T10:37:24.839Z",
-      "content": "hangisiyle ilgilenmene bağlı.",
-      "questionId": 13,
-      "userId": 1,
-      "id": 18
-    },
-    {
-      "created_at": "2021-09-13T10:56:28.218Z",
-      "content": "benim yok kanki.\n",
-      "questionId": 4,
-      "userId": 1,
+      "details": "<h1 class=\"ql-align-center\"><span style=\"color: rgb(230, 0, 0);\">a.s</span></h1>",
+      "questionId": 12,
+      "created_at": "2022-12-25T20:43:56.761Z",
       "id": 19
-    },
-    {
-      "created_at": "2021-09-13T10:56:42.537Z",
-      "content": "bakam\n",
-      "questionId": 4,
-      "userId": 1,
-      "id": 20
-    },
-    {
-      "created_at": "2021-09-14T11:18:42.796Z",
-      "content": "valla kanka bende anlayamadım.\n",
-      "questionId": 16,
-      "userId": 1,
-      "id": 21
-    },
-    {
-      "created_at": "2021-09-15T06:37:49.197Z",
-      "content": null,
-      "questionId": 16,
-      "userId": 1,
-      "id": 22
-    },
-    {
-      "created_at": "2021-09-15T09:04:32.091Z",
-      "content": "<h2>kankacım</h2><p>orada yazıyor bak <span style=\"background-color: rgb(250, 204, 204); color: rgb(230, 0, 0);\">undefined</span>'  ın <span style=\"background-color: rgb(250, 204, 204); color: rgb(230, 0, 0);\">'length'</span> i okunamıyor diye.</p>",
-      "questionId": 16,
-      "userId": 1,
-      "id": 23
-    },
-    {
-      "created_at": "2021-09-15T09:48:27.788Z",
-      "content": "<h3>kanka burası soru sorma platformu sorun varsa yaz yoksa <span class=\"ql-font-serif\">boş</span> <span class=\"ql-font-serif\">yapma.</span></h3>",
-      "questionId": 17,
-      "userId": 1,
-      "id": 24
-    },
-    {
-      "created_at": "2021-09-16T18:29:34.466Z",
-      "content": "<p>buyrun efenim. </p><iframe class=\"ql-video\" frameborder=\"0\" allowfullscreen=\"true\" src=\"https://www.youtube.com/embed/YPqgLHiidGs?showinfo=0\"></iframe><p><br></p>",
-      "questionId": 18,
-      "userId": 1,
-      "id": 25
-    },
-    {
-      "created_at": "2021-09-17T06:45:32.968Z",
-      "userId": 3,
-      "content": "<h3>@2 eyvallah karşim :D </h3>",
-      "questionId": 4,
-      "id": 26
-    },
-    {
-      "created_at": "2021-09-18T11:50:47.197Z",
-      "userId": 1,
-      "content": "<p><span class=\"ql-size-large\" style=\"color: rgb(240, 102, 102); background-color: rgb(0, 0, 0);\">abi ben al beni hüüğğ</span></p>",
-      "questionId": 19,
-      "id": 27
-    },
-    {
-      "created_at": "2021-09-19T09:13:48.912Z",
-      "userId": 2,
-      "content": "<p>çözdün mü kank</p>",
-      "questionId": 2,
-      "id": 28
-    },
-    {
-      "content": "<p><span class=\"ql-size-huge\" style=\"color: rgb(107, 36, 178); background-color: rgb(255, 255, 102);\">++</span></p>",
-      "questionId": 19,
-      "created_at": "2021-09-19T09:18:28.291Z",
-      "userId": 2,
-      "id": 29
-    },
-    {
-      "content": "<h2>karşim ayıpsın ! :)</h2><p><a href=\"https://www.youtube.com/c/kablosuzkedii\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"color: rgb(255, 194, 102); background-color: rgb(0, 0, 0);\">youtube kanalımda</a> bununla ilgili bootcampimiz var tavsiye ederim :)</p><p><u>ayrıca telegram grubumuzada </u><a href=\"https://t.me/joinchat/pqiJOgi8byQ5Y2E0\" rel=\"noopener noreferrer\" target=\"_blank\"><u>buradan</u></a><u> katılabilirsin :)</u></p>",
-      "questionId": 20,
-      "created_at": "2021-09-25T09:34:53.388Z",
-      "userId": 3,
-      "likes": [],
-      "dislikes": [],
-      "id": 30
-    },
-    {
-      "content": "<p>deneme</p>",
-      "questionId": 20,
-      "created_at": "2021-10-23T13:59:49.228Z",
-      "userId": 1,
-      "likes": [],
-      "dislikes": [],
-      "id": 31
     }
   ],
   "users": [
     {
-      "name": "Enes Taha Sarı",
       "email": "ets.34.es@gmail.com",
-      "password": "2ec57c8d873e1765ac0c37ef8fcebb858cd62c4e",
-      "categoryId": 1,
-      "bio": "<h1><span style=\"color: rgb(102, 163, 224);\">deneme</span></h1><p>merhaba ben enes twit at bize</p>",
+      "password": "862f6b0f59c7a8a14ec0bc5fbeedb4ea9ac4a123",
+      "full_name": "Enes Taha Sarı",
       "id": 1
     },
     {
-      "name": "Cengiz c. mataraci",
-      "email": "cengiz.c@gmail.com",
-      "password": "2ec57c8d873e1765ac0c37ef8fcebb858cd62c4e",
-      "categoryId": 5,
-      "bio": null,
+      "email": "gizem@gur.com",
+      "password": "862f6b0f59c7a8a14ec0bc5fbeedb4ea9ac4a123",
+      "full_name": "Gizem Gur",
       "id": 2
-    },
-    {
-      "name": "Gökhan Kandemir",
-      "email": "kablosuzkedi@gkandemi.com",
-      "password": "2ec57c8d873e1765ac0c37ef8fcebb858cd62c4e",
-      "categoryId": 6,
-      "bio": null,
-      "id": 3
-    },
-    {
-      "name": "Mehmet Sezer",
-      "email": "h.mehmet@sezer.com",
-      "password": "2ec57c8d873e1765ac0c37ef8fcebb858cd62c4e",
-      "categoryId": 7,
-      "bio": null,
-      "id": 4
-    }
-  ],
-  "favorites": [
-    {
-      "questionId": 18,
-      "created_at": "2021-09-18T05:52:58.872Z",
-      "userId": 1,
-      "id": 1
-    },
-    {
-      "questionId": 18,
-      "created_at": "2021-09-18T05:53:05.034Z",
-      "userId": 3,
-      "id": 2
-    },
-    {
-      "questionId": 17,
-      "created_at": "2021-09-18T05:53:57.502Z",
-      "userId": 3,
-      "id": 3
-    },
-    {
-      "questionId": 17,
-      "created_at": "2021-09-18T07:04:37.966Z",
-      "userId": 1,
-      "id": 4
-    },
-    {
-      "questionId": 19,
-      "created_at": "2021-09-18T11:47:52.058Z",
-      "userId": 3,
-      "id": 5
-    },
-    {
-      "questionId": 2,
-      "created_at": "2021-09-19T09:13:38.068Z",
-      "userId": 2,
-      "id": 7
-    },
-    {
-      "questionId": 9,
-      "created_at": "2021-09-19T09:27:40.157Z",
-      "userId": 2,
-      "id": 8
-    },
-    {
-      "questionId": 18,
-      "created_at": "2021-09-19T10:02:33.726Z",
-      "userId": 2,
-      "id": 9
-    },
-    {
-      "questionId": 12,
-      "created_at": "2021-10-23T14:01:00.834Z",
-      "userId": 1,
-      "id": 11
-    },
-    {
-      "questionId": 10,
-      "created_at": "2021-10-23T14:01:01.351Z",
-      "userId": 1,
-      "id": 12
-    },
-    {
-      "questionId": 20,
-      "created_at": "2022-03-18T19:08:57.525Z",
-      "userId": 1,
-      "id": 13
-    }
-  ],
-  "likes": [
-    {
-      "answerId": 27,
-      "userId": 1,
-      "id": 1
-    },
-    {
-      "answerId": 23,
-      "userId": 1,
-      "id": 2
-    },
-    {
-      "answerId": 17,
-      "userId": 1,
-      "id": 3
-    },
-    {
-      "answerId": 27,
-      "userId": 2,
-      "id": 4
-    },
-    {
-      "answerId": 29,
-      "userId": 1,
-      "id": 5
-    },
-    {
-      "answerId": 28,
-      "userId": 1,
-      "id": 6
-    },
-    {
-      "answerId": 10,
-      "userId": 1,
-      "id": 7
-    },
-    {
-      "userId": 3,
-      "id": 8
-    },
-    {
-      "answerId": 30,
-      "userId": 3,
-      "id": 9
-    },
-    {
-      "answerId": 30,
-      "userId": 1,
-      "id": 10
-    },
-    {
-      "answerId": 31,
-      "userId": 1,
-      "id": 11
-    }
-  ],
-  "dislikes": [
-    {
-      "answerId": 22,
-      "userId": 1,
-      "id": 1
-    },
-    {
-      "answerId": 23,
-      "userId": 1,
-      "id": 2
-    },
-    {
-      "answerId": 16,
-      "userId": 1,
-      "id": 3
-    },
-    {
-      "answerId": 15,
-      "userId": 1,
-      "id": 4
-    },
-    {
-      "answerId": 17,
-      "userId": 1,
-      "id": 5
-    },
-    {
-      "answerId": 29,
-      "userId": 2,
-      "id": 6
-    },
-    {
-      "answerId": 29,
-      "userId": 1,
-      "id": 7
-    },
-    {
-      "answerId": 31,
-      "userId": 1,
-      "id": 8
-    },
-    {
-      "answerId": 29,
-      "userId": 1,
-      "id": 9
     }
   ]
 }

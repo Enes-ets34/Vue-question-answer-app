@@ -1,10 +1,7 @@
 import axios from "axios";
 
 export const appAxios = axios.create({
-   baseURL: "http://localhost:3000",
-  // baseURL: "https://my-json-server.typicode.com/Enes-ets34/qa-app-json-server",
+  baseURL: "http://localhost:3000",
   withCredentials: false,
-  headers: {
-    "Content-Type": "application/json"
-  }
+  headers: { "Content-type": " application/json" },
 });
